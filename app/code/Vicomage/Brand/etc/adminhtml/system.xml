@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+ 
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="vicomage_brand" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Brand</label>
+            <tab>vicomage_config</tab>
+            <resource>Vicomage_Brand::config_shopbrand</resource>
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <comment>Enabled frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="attributeCode" translate="label comment" type="select" sortOrder="5"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Attribute Brand: </label>
+                    <comment>Brand attribute code</comment>
+                    <source_model>Vicomage\Brand\Model\System\Config\Attribute</source_model>
+                </field>
+                <field id="link" translate="label comment" type="select" sortOrder="8"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Brand: </label>
+                    <comment>Link Brand</comment>
+                    <source_model>Vicomage\Brand\Model\System\Config\Link</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,210 @@
+<?php
+    $header_type = $this->getConfig('vicomage_general_config/header/header_type');
+?>
+<header class="page-header header-type<?php echo $header_type; ?>">
+	<?php if($header_type == 1): ?>
+	<div class="panel wrapper">
+        <div class="panel header header-top">
+            <?php echo $this->getChildHtml("skip_to_content"); ?>
+			<div class="row">
+				<div class="header-top-left col-sm-6">
+					<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_header_toplink')->toHtml();?>
+				</div>
+				<div class="header-top-right col-sm-6">
+					<?php echo $this->getChildHtml("currency"); ?>
+					<?php echo $this->getChildHtml("store_language"); ?>
+					<div class="top-links-header switcher" id="links-header">
+						<?php
+
+							$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+							$customerSession = $objectManager->get('Magento\Framework\App\Http\Context');
+							$isLoggedIn = $customerSession->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH); ?>
+						<?php if($isLoggedIn){ ?>
+							<div class="actions dropdown options links-header-options">
+								<div class="action toggle links-header-trigger" id="links-header-trigger">
+								<strong class="" data-bind="scope: 'customer'">
+									<span data-bind="text: customer().fullname ? $t('Welkom, %1').replace('%1', customer().fullname) : ''"></span>
+								</strong>
+								<script type="text/x-magento-init">
+								{
+									"*": {
+										"Magento_Ui/js/core/app": {
+											"components": {
+												"customer": {
+													"component": "Magento_Customer/js/view/customer"
+												}
+											}
+										}
+									}
+								}
+								</script>
+								</div>
+								<div class="links-header-dropdown" data-mage-init='{"dropdownDialog":{
+												"appendTo":".links-header-options",
+												"triggerTarget":"#links-header-trigger",
+												"closeOnMouseLeave": false,
+												"triggerClass":"active",
+												"parentClass":"active",
+												"buttons":null}}'>
+									<?php echo $this->getChildHtml("header.links"); ?>
+								</div>
+							</div>
+						<?php } else { ?>
+							<div class="account-list header links">
+								<a class="register-link" href="<?php echo $this->getUrl('customer/account/create') ?>"><i class="fa fa-user" aria-hidden="true"></i><?php echo __('Create an Account') ?></a><span class="line-padding">/</span>
+								<a class="login-link" href="<?php echo $this->getUrl('customer/account/login') ?>"><?php echo __('Sign In') ?></a>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+	<div class="header-content header-sticker sticker">
+		<div class="container">
+			<div class="header-content-type">
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2 header-content-left">
+						<div class="header-logo">
+							 <?php echo $this->getChildHtml("logo_theme"); ?>
+						</div>
+					</div>
+					<div class="col-sm-8 header-center">
+						<div class="header-search">
+							<div class="search-switcher">
+								<div class="dropdown-toggle">
+									<div class="icon-search"><i class="fa fa-search"></i></div>
+								</div>
+								<div class="dropdown-switcher">
+									<?php echo $this->getChildHtml("top.search"); ?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 header-right">
+						<div class="header-content-right">
+							<div class="header-content-bottom">
+								<?php echo $this->getChildHtml("minicart"); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-content-menu ">
+			<div class="container">
+				<div class="header-menu">
+					<?php echo $this->getChildHtml("navigation.sections"); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<?php endif; ?>
+	
+	<?php if($header_type == 2 ): ?>
+	<div class="panel wrapper">
+        <div class="panel header header-top">
+            <?php echo $this->getChildHtml("skip_to_content"); ?>
+			<div class="row">
+				<div class="header-top-left col-sm-6">
+					<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_header_toplink')->toHtml();?>
+				</div>
+				<div class="header-top-right col-sm-6">
+					<?php echo $this->getChildHtml("currency"); ?>
+					<?php echo $this->getChildHtml("store_language"); ?>
+					<div class="top-links-header switcher" id="links-header">
+						<?php
+
+							$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+							$customerSession = $objectManager->get('Magento\Framework\App\Http\Context');
+							$isLoggedIn = $customerSession->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH); ?>
+						<?php if($isLoggedIn){ ?>
+							<div class="actions dropdown options links-header-options">
+								<div class="action toggle links-header-trigger" id="links-header-trigger">
+								<strong class="" data-bind="scope: 'customer'">
+									<span data-bind="text: customer().fullname ? $t('Welkom, %1').replace('%1', customer().fullname) : ''"></span>
+								</strong>
+								<script type="text/x-magento-init">
+								{
+									"*": {
+										"Magento_Ui/js/core/app": {
+											"components": {
+												"customer": {
+													"component": "Magento_Customer/js/view/customer"
+												}
+											}
+										}
+									}
+								}
+								</script>
+								</div>
+								<div class="links-header-dropdown" data-mage-init='{"dropdownDialog":{
+												"appendTo":".links-header-options",
+												"triggerTarget":"#links-header-trigger",
+												"closeOnMouseLeave": false,
+												"triggerClass":"active",
+												"parentClass":"active",
+												"buttons":null}}'>
+									<?php echo $this->getChildHtml("header.links"); ?>
+								</div>
+							</div>
+						<?php } else { ?>
+							<div class="account-list header links">
+								<a class="register-link" href="<?php echo $this->getUrl('customer/account/create') ?>"><i class="fa fa-user" aria-hidden="true"></i><?php echo __('Create an Account') ?></a><span class="line-padding">/</span>
+								<a class="login-link" href="<?php echo $this->getUrl('customer/account/login') ?>"><?php echo __('Sign In') ?></a>
+							</div>
+						<?php } ?>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+	<div class="header-content">
+		<div class="container">
+			<div class="header-content-type">
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2 header-content-left">
+						<div class="header-logo">
+							 <?php echo $this->getChildHtml("logo_theme"); ?>
+						</div>
+					</div>
+					<div class="col-sm-8 header-center">
+						<div class="header-search">
+							<div class="search-switcher">
+								<div class="dropdown-toggle">
+									<div class="icon-search"><i class="fa fa-search"></i></div>
+								</div>
+								<div class="dropdown-switcher">
+									<?php echo $this->getChildHtml("top.search"); ?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 header-right">
+						<div class="header-content-right">
+							<div class="header-content-bottom">
+								<?php echo $this->getChildHtml("minicart"); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-content-menu header-sticker sticker">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-md-3 col-lg-3 header-content-left hidden-xs">
+				    	<div class="header-vetical-menu">
+							  <?php echo $this->getChildHtml("vertical.menu"); ?>
+						</div> 
+				    </div>
+					<div class="header-menu">
+						<?php echo $this->getChildHtml("navigation.sections"); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endif; ?>
+</header>

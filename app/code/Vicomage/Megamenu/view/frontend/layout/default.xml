@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="catalog.topnav" remove="true"/>
+        <referenceBlock name="store.menu">
+            <block ifconfig="vicomage_megamenu_setting/general/enabled" class="Vicomage\Megamenu\Block\TopMegamenu" name="catalog.topnav.menu" template="Vicomage_Megamenu::navigation.phtml" before="-">
+                <block class="Magento\Store\Block\Switcher" name="home.store_switcher" template="Vicomage_Megamenu::stores.phtml"/>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="div.sidebar.main">
+            <block ifconfig="vicomage_megamenu_setting/general/enabled" class="Vicomage\Megamenu\Block\AccordionMegamenu" name="accordion.sidebar" template="Vicomage_Megamenu::accordion.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

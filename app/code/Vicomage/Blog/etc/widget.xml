@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+    <widget id="Vicomage_blog_recent" class="Vicomage\Blog\Block\Widget\Recent">
+        <label translate="true">Vicomage Blog Posts</label>
+        <description>Vicomage Display recent blog posts</description>
+        <parameters>
+            <parameter name="title" xsi:type="text"  visible="true" >
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="number_of_posts" xsi:type="text"  visible="true">
+                <label translate="true">Number of Posts</label>
+            </parameter>
+			 <parameter name="category_id" xsi:type="select" source_model="Vicomage\Blog\Model\Config\Source\Category" visible="true" >
+                <label translate="true">Blog Category</label>
+            </parameter>
+            <parameter name="template" xsi:type="text" visible="true" >
+                <label translate="true">Template File</label>
+            </parameter>
+			 <parameter name="show_thumbnail" xsi:type="select" visible="true">
+                <label translate="true">Show Thumbnail</label>
+				<options>
+					<option name="0" value="0">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="1" value="1" selected="true">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="thumbnail_width" xsi:type="text" visible="true">
+                <label translate="true">Thumbnail Width</label>
+                <depends>
+                    <parameter name="show_thumbnail" value="1"/>
+                </depends>
+                <value>240</value>
+            </parameter>
+            <parameter name="thumbnail_height" xsi:type="text" visible="true">
+                <label translate="true">Thumbnail Height</label>
+                <depends>
+                    <parameter name="show_thumbnail" value="1"/>
+                </depends>
+                <value>180</value>
+            </parameter>
+			<parameter name="show_short_content" xsi:type="select" visible="true">
+                <label translate="true">Show Short Content</label>
+				<options>
+                    <option name="0" value="0">
+                        <label translate="true">No</label>
+                    </option>
+                    <option name="1" value="1" selected="true">
+                        <label translate="true">Yes</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="limit_characters_short_content" xsi:type="text" visible="true">
+                <label translate="true">Limit Characters Of Short Content To Display</label>
+                <depends>
+                    <parameter name="show_short_content" value="1"/>
+                </depends>
+                <value>100</value>
+            </parameter>
+			<parameter name="view_as" xsi:type="select" visible="true">
+                <label translate="true">View As:</label>
+				<options>
+                    <option name="default" value="default" selected="true">
+                        <label translate="true">Default</label>
+                    </option>
+					<option name="slide" value="slide">
+                        <label translate="true">Slide</label>
+                    </option>
+                </options>
+            </parameter>
+			
+			<parameter name="vertical" xsi:type="select" visible="true">
+                <label translate="true">Slide Vertical</label>
+                <depends>
+                    <parameter name="view_as" value="slide"/>
+                </depends>
+                <options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+			
+			<parameter name="infinite" xsi:type="select" visible="true">
+                <label translate="true">Infinite</label>
+                <depends>
+                    <parameter name="view_as" value="slide"/>
+                </depends>
+                <options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="autoplay" xsi:type="select" visible="true"  >
+                <label translate="true">Auto Play</label>
+                <depends>
+                    <parameter name="view_as" value="slide"/>
+                </depends>
+                <options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="arrows" xsi:type="select" visible="true">
+                <label translate="true">Arrows</label>
+				<depends>
+					<parameter name="view_as" value="slide"/>
+				</depends>
+				<options>
+                    <option name="false" value="false" >
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="dots" xsi:type="select" visible="true">
+                <label translate="true">Dots</label>
+				<depends>
+					<parameter name="view_as" value="slide"/>
+				</depends>
+				<options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="speed" xsi:type="text" visible="true">
+                <label translate="true">Speed</label>
+                <depends>
+                    <parameter name="view_as" value="slide"/>
+                </depends>
+				<value>300</value>
+            </parameter>
+
+            <parameter name="autoplaySpeed" xsi:type="text" visible="true">
+                <label translate="true">Autoplay Speed</label>
+                <depends>
+                    <parameter name="view_as" value="slide"/>
+                </depends>
+				<value>3000</value>
+            </parameter>
+
+			<parameter name="padding" required="true" xsi:type="text" visible="true">
+				<label translate="true">Padding</label>
+				<depends>
+					<parameter name="view_as" value="slide"/>
+				</depends>
+				<value>15</value>
+			</parameter>
+
+			<parameter name="rows" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Row">
+				<label translate="true">Rows</label>
+				<depends>
+					<parameter name="view_as" value="slide"/>
+				</depends>
+			</parameter>
+
+			<parameter name="mobile" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[max-width 360: ]]></label>
+			</parameter>
+
+			<parameter name="portrait" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[max-width 480: ]]></label>
+			</parameter>
+
+			<parameter name="landscape" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[max-width 640: ]]></label>
+			</parameter>
+
+			<parameter name="tablet" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[max-width 768: ]]></label>
+			</parameter>
+
+			<parameter name="notebook" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[max-width 991: ]]></label>
+			</parameter>
+
+			<parameter name="desktop" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[max-width 1199: ]]></label>
+			</parameter>
+
+			<parameter name="visible" xsi:type="select" visible="true"
+                       source_model="Vicomage\Core\Model\System\Config\Col">
+				<label translate="true"><![CDATA[Display Visible Items: ]]></label>
+			</parameter>
+			
+        </parameters>
+    </widget>
+</widgets>

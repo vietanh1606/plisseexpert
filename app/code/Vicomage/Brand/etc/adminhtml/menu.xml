@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+	    <add id="Vicomage_Brand::brand" title="Brand" module="Vicomage_Brand" sortOrder="10" parent="Vicomage_Core::vicomage_manage" resource="Vicomage_Brand::brand"/>
+		<add id="Vicomage_Brand::brand_brand" title="Brand" module="Vicomage_Brand" sortOrder="10" parent="Vicomage_Brand::brand" action="brand/brand" resource="Vicomage_Brand::brand_brand"/>
+        <add id="Vicomage_Brand::vicomage_brand_setting" title="Brand Setting" module="Vicomage_Brand" sortOrder="12" parent="Vicomage_Brand::brand" action="adminhtml/system_config/edit/section/vicomage_brand" resource="Vicomage_Brand::vicomage_brand_setting"/>
+    </menu>
+</config>

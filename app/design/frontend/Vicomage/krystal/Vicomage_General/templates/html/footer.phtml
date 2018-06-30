@@ -1,0 +1,88 @@
+<?php
+$footer = $this->getConfig('vicomage_general_config/footer');
+?>
+<div class="footer footer-type">
+    <?php if ($footer['footer_top']) { ?>
+        <div class="footer-top">
+            <?php
+            if ($footer['footer_top_custom']) {
+                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                if ($block) {
+                    $block->setBlockId($footer['footer_top_custom']);
+                }
+                if ($block) {
+                    echo $block->toHtml();
+                }
+            }
+            ?>
+        </div>
+    <?php } ?>
+
+    <?php if ($footer['footer_middle']) { ?>
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <?php
+                    if ($footer['footer_middle_custom']) {
+                        $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                        if ($block) {
+                            $block->setBlockId($footer['footer_middle_custom']);
+                        }
+                        if ($block) {
+                            echo $block->toHtml();
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+    <?php if ($footer['footer_middle_2']) { ?>
+        <div class="footer-middle-2">
+            <div class="container">
+				<?php
+				if ($footer['footer_middle_2_custom']) {
+					$block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+					if ($block) {
+						$block->setBlockId($footer['footer_middle_2_custom']);
+					}
+					if ($block) {
+						echo $block->toHtml();
+					}
+				}
+				?>
+            </div>
+        </div>
+    <?php } ?>
+
+    <?php if ($footer['footer_bottom']) { ?>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-mobile-12">
+						<?php echo $this->getChildHtml("footer.copyright"); ?>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-mobile-12">
+						<?php
+						if ($footer['footer_bottom_custom']) {
+							$block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+							if ($block) {
+								$block->setBlockId($footer['footer_bottom_custom']);
+							}
+							if ($block) {
+								echo $block->toHtml();
+							}
+						}
+						?>
+						<?php if ($footer['footer_store_switcher']) { ?>
+							<?php echo $this->getChildHtml("footer.store_switcher"); ?>
+						<?php } ?>
+					</div>
+				</div>
+			</div>
+		</div>
+    <?php } ?>
+
+</div>
+<a id="backtotop" href="#top" style="display: block;" class=""><span class="fa fa-angle-up"></span></a>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <slider>
+    <item>
+      <name><![CDATA[Home5 Slide]]></name>
+      <identity><![CDATA[home5-slide]]></identity>
+      <slider_params><![CDATA[{"1":{"position":"1","file":"\/h\/o\/home5-slide2_1.jpg","image":"\/h\/o\/home5-slide2_1.jpg","media_type":"image","value_id":"1","label":"slide1","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home5-slide2_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-left\">\r\n    <div class=\"text-slide text-slide1\">\r\n        <h3 class=\"caption1\">\r\n        \tDangerous Alone <br\/>\r\n\t\t\tUnstoppable <br\/>\r\n\t\t\tTogether.\r\n        <\/h3>\r\n        <h2 class=\"caption2\">All New Trail Shoe<\/h2>\r\n        <h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n    <\/div>\r\n<\/div>","disabled":"0","removed":""},"2":{"position":"2","file":"\/h\/o\/home5-slide1_2.jpg","image":"","media_type":"image","value_id":"2","label":"slide2","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home5-slide1_2.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-left\">\r\n    <div class=\"text-slide text-slide1\">\r\n        <h3 class=\"caption1\">\r\n            Handbags, Purses <br\/>& More !\r\n        <\/h3>\r\n        <h2 class=\"caption2\">Timeless Fashion<\/h2>\r\n        <h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n    <\/div>\r\n<\/div>","disabled":"0","removed":""},"3":{"position":"3","file":"\/h\/o\/home5-slide3_1.jpg","image":"","media_type":"image","value_id":"3","label":"slide3","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home5-slide3_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-left\">\r\n    <div class=\"text-slide text-slide1\">\r\n        <h3 class=\"caption1\">\r\n        \tComplete Your Look\r\n        <\/h3>\r\n        <h2 class=\"caption2\">Fashion for Any Occasion<\/h2>\r\n        <h2 class=\"caption3 color-red\">Up to 50% Off<\/h2>\r\n        <h2 class=\"caption4\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n    <\/div>\r\n<\/div>","disabled":"0","removed":""}}]]></slider_params>
+      <width><![CDATA[850]]></width>
+      <height><![CDATA[440]]></height>
+      <number><![CDATA[3]]></number>
+      <status><![CDATA[1]]></status>
+      <navigation><![CDATA[1]]></navigation>
+      <pagercontrol><![CDATA[1]]></pagercontrol>
+      <lazyload><![CDATA[0]]></lazyload>
+      <speed><![CDATA[]]></speed>
+      <auto_play><![CDATA[0]]></auto_play>
+      <autoplay_speed><![CDATA[]]></autoplay_speed>
+      <stop_on_hover><![CDATA[0]]></stop_on_hover>
+      <loop><![CDATA[0]]></loop>
+    </item>
+  </slider>
+</root>

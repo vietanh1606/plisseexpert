@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Store switcher template
+ *
+ * @see \Magento\Store\Block\Store\Switcher
+ */
+?>
+
+<?php if (count($block->getGroups()) > 1): ?>
+    <ul class="subchildmenu submenu">
+        <?php foreach ($block->getGroups() as $_group): ?>
+            <?php $_selected = ($_group->getId() == $block->getCurrentGroupId()) ? ' current' : '' ?>
+            <?php if ($_group->getId() == $block->getCurrentGroupId()): ?>
+                <li class="ui-menu-item level1 <?php echo $_selected ?>">
+                    <a class="level-top" href="<?php echo $_group->getDefaultStore()->getBaseUrl() ?>"><span><?php echo $block->escapeHtml($_group->getName()) ?></span></a>
+                </li>
+            <?php endif; ?>
+            <?php if (!($_group->getId() == $block->getCurrentGroupId())): ?>
+                <li class="ui-menu-item level1">
+                    <a href="#"
+                       data-post='<?php /* @escapeNotVerified */
+                       echo $block->getTargetStorePostData($_group->getDefaultStore()); ?>'>
+                        <?php echo $block->escapeHtml($_group->getName()) ?>
+                    </a>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+
+<?php endif; ?>

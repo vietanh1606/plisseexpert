@@ -1,0 +1,115 @@
+<?php
+/**
+ * Product related posts template
+ *
+ * @var $block \Vicomage\Blog\Block\Catalog\Product\RelatedPosts
+ */
+?>
+
+<?php if ($block->displayPosts()) { ?>
+    <?php $_postCollection = $block->getPostCollection(); ?>
+    <?php if ($_postCollection->count()) { ?>
+    <div class="block related blog-widget-recent">
+		<div class="title-page">
+			<h2 class="subtitle"><?php echo __('Related posts') ?></h2>
+		</div>
+		 <div id="blogslide-related" class="post-list clearfix  row post-list-slide">
+			<?php foreach ($_postCollection as $_post) { // echo "<pre>";var_dump($_post->getData()); echo "</pre>";;?>
+				<?php
+					$_postUrl = $_post->getPostUrl();
+					$_postName = $block->escapeHtml($_post->getTitle(), null, true);
+					$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+					$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+					
+				?>
+				<div class="post-item post-holder-<?php echo $_post->getId() ?> "> 
+					<?php if ($thumbImage = $_post->getThumbnailImg()) { ?>
+					<div class="post-image">
+					   <a href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+							<img class="img-responsive" src="<?php echo $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA).$thumbImage; ?>" alt="<?php echo $_postName ?>" />
+						</a>
+						<div class="post-date">
+							<span class="date-home-day"><?php echo $_post->getPublishDate('j') ?></span>
+							<span class="date-home-month"><?php echo $_post->getPublishDate('M') ?></span>
+						</div>
+					</div>
+					<?php } ?>
+					<div class="post-description">
+						<div class="postTitle">
+							<h2><a href="<?php echo $_postUrl ?>"><?php echo $_postName; ?></a></h2>
+						</div>
+						<div class="post-content">
+							 <?php if ($_post->getShortContent()) { ?>
+								 <div class="post-text clearfix">
+									<?php echo substr($_post->getShortContent(), 0, 100); ?>
+								</div>
+							<?php } ?>
+							<a class="post-read-more" href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+							   <?php echo __('Read more') ?>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			<?php } ?>
+		</div>
+
+    </div>
+	<script type="text/javascript">
+	require([
+		'jquery',
+		'slick'
+	], function ($) {	
+		$("#blogslide-related").slick({
+			slidesToShow: 3,
+			autoplay: false,			
+			pauseOnHover: false,			
+			dots: false,
+			arrows: true,
+			rows: 1,
+			infinite: false,
+			slidesToScroll: 1,
+			responsive: [
+				{
+				  breakpoint: 1200,
+				  settings: {
+					slidesToShow: 3				  
+					}
+				},
+				{
+				  breakpoint: 992,
+				  settings: {
+					slidesToShow: 3				 
+					}
+				},
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 2				
+					}
+				},
+				{
+				  breakpoint: 640,
+				  settings: {
+					slidesToShow: 2				 
+					}
+				},
+				{
+				  breakpoint: 480,
+				  settings: {
+					slidesToShow: 1				 
+					}
+				},
+				{
+				  breakpoint: 360,
+				  settings: {
+					slidesToShow: 1			
+					}
+				}
+			]
+		});
+	});
+    
+</script>
+    <?php } ?>
+<?php } ?>

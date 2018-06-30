@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+    .vicomage-quickview-catalog-product-view.page-layout-1column .product-info-main {
+        width: 100%;
+    }
+}

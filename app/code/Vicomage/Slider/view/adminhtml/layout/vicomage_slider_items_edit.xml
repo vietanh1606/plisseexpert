@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="left">
+            <block class="Vicomage\Slider\Block\Adminhtml\Items\Edit\Tabs" name="vicomage_slider_items_edit_tabs">
+                <block class="Vicomage\Slider\Block\Adminhtml\Items\Edit\Tab\Main" name="vicomage_slider_items_edit_tab_main"/>
+                <block class="Vicomage\Slider\Block\Adminhtml\Items\Edit\Tab\Content" name="vicomage_slider_items_edit_tab_image"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">vicomage_slider_items_edit_tab_main</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">image_section</argument>
+                    <argument name="block" xsi:type="string">vicomage_slider_items_edit_tab_image</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Vicomage\Slider\Block\Adminhtml\Items\Edit" name="slider_items_edit"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+    <widget id="vicomage_multiwidget" class="Vicomage\Multiwidget\Block\Widget">
+        <label translate="true">Vicomage Multi Widget</label>
+        <description>Vicomage Multi Widget</description>
+        <parameters>
+
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="identifier" xsi:type="text" required="true" visible="true">
+                <label translate="true">Identifier</label>
+            </parameter>
+
+            <parameter name="status" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Enabledisable">
+                <label translate="true">Status</label>
+            </parameter>
+
+            <parameter name="ajax" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Use AJAX</label>
+            </parameter>
+
+
+            <parameter name="widget_product_type" xsi:type="select" visible="true">
+                <label translate="true">Widget Product Type</label>
+                <options>
+                    <option name="category" value="category" selected="true">
+                        <label translate="true">Category</label>
+                    </option>
+                    <option name="product" value="product">
+                        <label translate="true">Product</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="category_ids" xsi:type="multiselect" visible="true" source_model="Vicomage\Multiwidget\Model\Widget\Category">
+                <label translate="true">Categories</label>
+                <depends>
+                    <parameter name="widget_product_type" value="category"/>
+                </depends>
+            </parameter>
+
+
+
+            <parameter name="product_type_collection" xsi:type="multiselect" required="true" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\ProductType">
+                <label translate="true">Product Collection</label>
+                <depends>
+                    <parameter name="widget_product_type" value="product"/>
+                </depends>
+            </parameter>
+
+            <parameter name="condition" xsi:type="conditions" visible="true"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Condition</label>
+                <depends>
+                    <parameter name="widget_product_type" value="product"/>
+                </depends>
+            </parameter>
+
+
+            <parameter name="product_category_collection" xsi:type="select" visible="true" source_model="Vicomage\Multiwidget\Model\Widget\ProductType">
+                <label translate="true">Product Collection</label>
+                <depends>
+                    <parameter name="widget_product_type" value="category" />
+                </depends>
+            </parameter>
+
+
+            <parameter name="product_template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <depends>
+                    <parameter name="widget_product_type" value="product" />
+                </depends>
+                <options>
+                    <option name="default" value="widget/product/default.phtml" selected="true">
+                        <label translate="true">Default</label>
+                    </option>
+					<option name="default-list" value="widget/product/default-list.phtml" >
+                        <label translate="true">Default List</label>
+                    </option>
+					<option name="default-featured" value="widget/product/default-featured.phtml" >
+                        <label translate="true">Default Featured</label>
+                    </option>
+                </options>
+
+            </parameter>
+
+
+            <parameter name="category_template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <depends>
+                    <parameter name="widget_product_type" value="category" />
+                </depends>
+                <options>
+                    <option name="default" value="widget/category/default.phtml" selected="true">
+                        <label translate="true">Default</label>
+                    </option>
+					<option name="default-list" value="widget/category/default-list.phtml" >
+                        <label translate="true">Default List</label>
+                    </option>
+					<option name="default-featured" value="widget/category/default-featured.phtml" >
+                        <label translate="true">Default Featured</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="limit" xsi:type="text" required="true" visible="true">
+                <label translate="true">Limit</label>
+            </parameter>
+
+            <parameter name="timer" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Show CountDown</label>
+            </parameter>
+
+
+            <parameter name="timer_type" xsi:type="select" visible="true">
+                <label translate="true">Timer Type</label>
+                <depends>
+                    <parameter name="timer" value="1"/>
+                </depends>
+                <options>
+                    <option name="default" value="1" selected="true">
+                        <label translate="true">Default</label>
+                    </option>
+                    <option name="caption" value="2">
+                        <label translate="true">Caption</label>
+                    </option>
+                </options>
+            </parameter>
+
+
+            <parameter name="slide" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Slide</label>
+            </parameter>
+
+            <parameter name="vertical" xsi:type="select" visible="true">
+                <label translate="true">Slide Vertical</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				 <options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="infinite" xsi:type="select" visible="true">
+                <label translate="true">Infinite</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				<options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="autoplay" xsi:type="select" visible="true"  >
+                <label translate="true">Auto Play</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				 <options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="arrows" xsi:type="select" visible="true">
+                <label translate="true">Arrows</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				<options>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="dots" xsi:type="select" visible="true">
+                <label translate="true">Dots</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				 <options>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                    <option name="true" value="true">
+                        <label translate="true">True</label>
+                    </option>
+                </options>
+            </parameter>
+			 <parameter name="speed" xsi:type="text" visible="true">
+                <label translate="true">Speed</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				<value>300</value>
+            </parameter>
+
+            <parameter name="autoplayspeed" xsi:type="text" visible="true">
+                <label translate="true">Autoplay Speed</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+				<value>3000</value>
+            </parameter>
+            <parameter name="rows" xsi:type="select" visible="true">
+                <label translate="true">Rows</label>
+				<depends>
+                    <parameter name="slide" value="1"/>
+                </depends>
+                <options>
+                    <option name="1item" value="1" selected="true">
+                        <label translate="true">1 item per row</label>
+                    </option>
+                    <option name="2item" value="2">
+                        <label translate="true">2 items per row</label>
+                    </option>
+                    <option name="3item" value="3">
+                        <label translate="true">3 items per row</label>
+                    </option>
+                    <option name="4item" value="4">
+                        <label translate="true">4 items per row</label>
+                    </option>
+                    <option name="5item" value="5">
+                        <label translate="true">5 items per row</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="width-image" xsi:type="text" visible="true">
+                <label translate="true">Width Image</label>
+            </parameter>
+
+            <parameter name="height-image" xsi:type="text" visible="true">
+                <label translate="true">Height Image</label>
+            </parameter>
+			
+			<parameter name="padding" xsi:type="text" visible="true">
+                <label translate="true">Padding</label>
+            </parameter>
+			
+            <parameter name="config_product" xsi:type="multiselect" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\ConfigProduct">
+                <label translate="true">Config Product</label>
+            </parameter>
+
+            <parameter name="mobile" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 360</label>
+            </parameter>
+
+            <parameter name="portrait" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 480</label>
+            </parameter>
+
+            <parameter name="landscape" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 640</label>
+            </parameter>
+
+            <parameter name="tablet" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 768</label>
+            </parameter>
+
+            <parameter name="notebook" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 991</label>
+            </parameter>
+
+            <parameter name="desktop" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 1199</label>
+            </parameter>
+
+            <parameter name="visible" xsi:type="select" visible="true"
+                       source_model="Vicomage\Multiwidget\Model\Widget\Config">
+                <label translate="true">max-width 1200</label>
+            </parameter>
+
+        </parameters>
+    </widget>
+</widgets>

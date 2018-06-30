@@ -1,0 +1,238 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+@toolbar-mode-icon-font-size: 16px;
+@toolbar-background: #eeeeee;
+@toolbar-element-background: @color-gray94;
+@pager-action__background: @toolbar-element-background;
+@pager-action__hover__background: darken(@toolbar-element-background, 7%);
+@pager__font-weight: @font-weight__bold;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .page-products {
+        .columns {
+            padding-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar {
+        &:extend(.abs-add-clearfix all);
+        margin-bottom: @indent__l;
+        text-align: center;
+
+        select {
+			border-color: #ddd;
+			color: #666666;
+			font-size: 13px;
+			padding: 0 25px 0 10px;
+			border-radius: 2px;
+        }
+        .modes-label {
+            display: none;
+        }
+        &-amount {
+            left: 0;
+            line-height: @toolbar-mode-icon-font-size+2;
+            margin: 0;
+            padding: 7px 0;
+            position: absolute;
+            text-align: left;
+            top: 0;
+            vertical-align: middle;
+            .products.wrapper ~ .toolbar & {
+                display: inline-block;
+            }
+        }
+
+        .page-with-filter & {
+            &-amount {
+                position: static;
+            }
+        }
+
+        &-products {
+            .lib-css(background-color, @toolbar-background);
+			padding: 8px 5px;
+            .pages {
+                display: none;
+                .products.wrapper ~ & {
+                    display: block;
+                }
+            }
+        }
+        .pages {
+            margin-bottom: @indent__m;
+        }
+    }
+
+    .sorter {
+        float: left;
+        .page-products & {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+		.sorter-label {
+			display: none;
+		}
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+        &-options {
+            margin: 0 @indent__xs 0 7px;
+            width: auto;
+        }
+        &-action {
+            color: #8f8f8f;
+			content: "\f176";
+			display: inline-block;
+			font-family: FontAwesome;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: inherit;
+			overflow: hidden;
+			text-align: center;
+			vertical-align: middle;
+            .lib-icon-text-hide();
+            &.sort-desc:before {
+                content: "\f175";
+            }
+        }
+    }
+
+    .modes {
+        display: none;
+    }
+
+    .limiter {
+        display: inline-block;
+		margin: 0 10px;
+        &-options {
+            margin: 0 5px 0 7px;
+            width: auto;
+        }
+        &-label {
+            font-weight: 400;
+        }
+        .control {
+            display: inline-block;
+        }
+		.limiter-text {
+			display: none;
+		}
+		.label {
+			display: none;
+		}
+        float: left;
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+    }
+
+    .products.wrapper ~ .toolbar {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+        position: relative;
+    }
+}
+
+//
+//  Desctop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .toolbar-products {
+        margin-bottom: 0;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-products {
+        .columns {
+            padding-top: 0;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .toolbar {
+        &-amount {
+            display: none;
+            float: right;
+            position: static;
+			padding: 7px 0 0;
+        }
+        .products.wrapper ~ & .pages {
+            float: left;
+            margin-bottom: 0;
+        }
+    }
+
+    .modes {
+        display: inline-block;
+        float: right;
+        margin-left: @indent__base;
+
+        .products.wrapper ~ .toolbar & {
+            display: none;
+        }
+
+        &-label {
+            &:extend(.abs-visually-hidden-desktop-s all);
+        }
+
+        &-mode {
+            float: left;
+            font-weight: @font-weight__regular;
+            line-height: 1;
+            padding: 10px 10px 6px;
+            text-align: center;
+			color: #333333;
+            
+            &:hover {
+                color: @theme-color;
+            }
+           
+            &.active {
+                color: @theme-color;
+            }
+			span {
+				display: inline-block;
+				font-size: 13px;
+			}
+            &::before{
+				content: "\f00a";
+				display: inline-block;
+				font-family: FontAwesome;
+				font-size: 14px;
+				font-weight: normal;
+				line-height: inherit;
+				overflow: hidden;
+				text-align: center;
+				vertical-align: middle;
+			}
+        }
+    }
+
+    .sorter {
+        .page-products & {
+            position: static;
+        }
+    }
+
+    .mode-list {
+        &:before {
+            content: "\f00b";
+        }
+    }
+
+
+}

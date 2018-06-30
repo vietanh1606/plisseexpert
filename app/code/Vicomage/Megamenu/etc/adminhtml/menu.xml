@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Vicomage_Megamenu::vicomage_megamenu" title="Mega Menu" module="Vicomage_Megamenu" sortOrder="1" parent="Vicomage_Core::vicomage_manage" resource="Vicomage_Megamenu::vicomage_megamenu"/>
+        <add id="Vicomage_Megamenu::megamenu_group" title="Mega Menu Group" module="Vicomage_Megamenu" sortOrder="1" parent="Vicomage_Megamenu::vicomage_megamenu" action="megamenu/group/index" resource="Vicomage_Megamenu::megamenu_group"/>
+        <add id="Vicomage_Megamenu::megamenu_items" title="Mega Menu Items" module="Vicomage_Megamenu" sortOrder="1" parent="Vicomage_Megamenu::vicomage_megamenu" action="megamenu/items/index" resource="Vicomage_Megamenu::megamenu_items"/>
+        <add id="Vicomage_Megamenu::vicomage_setting" title="Mega Menu Setting" module="Vicomage_Megamenu" sortOrder="14" parent="Vicomage_Megamenu::vicomage_megamenu" action="adminhtml/system_config/edit/section/vicomage_megamenu_setting" resource="Vicomage_Megamenu::vicomage_megamenu_setting"/>
+    </menu>
+</config>

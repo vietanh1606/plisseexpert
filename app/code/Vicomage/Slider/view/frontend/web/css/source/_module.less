@@ -1,0 +1,223 @@
+& when (@media-common = true) {
+
+.vicomage-slider {
+	.caption1, .caption2, .caption3, .caption4, .caption5{
+		display: none;
+	}
+	img {
+		width: 100%;
+	}
+	.slick-slide{
+		position:relative;
+	}
+	.slick-active{
+		.slide-caption{
+			left: 50%;
+			position: absolute;
+			text-align: center;
+			top: 50%;
+			width: 750px;
+			transform: translate(-50%, -50%);
+			-moz-transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			&.slide-caption-left {
+				left: auto;
+				transform: translate(0px, -50%);
+				-moz-transform: translate(0px, -50%);
+				-webkit-transform: translate(0px, -50%);
+			}
+			&.slide-caption-right {
+				left: inherit;
+				right: 10%;
+				transform: translate(0px, -50%);
+				-moz-transform: translate(0px, -50%);
+				-webkit-transform: translate(0px, -50%);
+			}
+			.caption1 {
+				-moz-animation: fadeInRight 0.8s ease-in 1.3s backwards;-webkit-animation: fadeInRight 0.8s ease-in 1s backwards;animation: fadeInRight 0.8s ease-in 1s backwards;color: #ffffff;
+				display: inline-block;
+				font-size: 330px;
+				font-weight: 400;
+				left: 0;
+				line-height: 230px;
+				margin: 0;
+				position: absolute;
+				top: 0;
+				z-index: 5;
+					span{opacity:0.3;} 
+				}
+			.caption2 {
+				-moz-animation: fadeInLeft 0.8s ease-in 1.5s backwards;-webkit-animation: fadeInLeft 0.8s ease-in 1.5s backwards;animation: fadeInLeft 0.8s ease-in 1.5s backwards;color: #ffffff;
+				display: block;
+				font-family: Monotype Corsiva;
+				font-size: 60px;
+				font-weight: 400;
+				line-height: 50px;
+				margin: 0;
+				position: relative;
+				text-transform: capitalize;
+				z-index: 10;
+				}
+			.caption3 {
+				-moz-animation: fadeInUp 0.8s ease-in 1.7s backwards;-webkit-animation: fadeInUp 0.8s ease-in 1.7s backwards;animation: fadeInUp 0.8s ease-in 1.7s backwards;
+				display: block;
+				color: #ffffff;
+				font-size: 80px;
+				font-weight: 400;
+				letter-spacing: 12px;
+				line-height: 1;
+				margin: 10px 0;
+				text-transform: uppercase;
+				position: relative;
+				z-index: 10;
+				}
+			.caption4 {
+				-moz-animation: fadeInLeft 1s ease-in 2s backwards;-webkit-animation: fadeInLeft 1s ease-in 2s backwards;animation: fadeInLeft 1 sease-in 2s backwards;
+				color: #ffffff;
+				display: block;
+				font-size: 36px;
+				margin: 0;
+				font-weight: 300;
+				letter-spacing: 7px;
+				text-transform: uppercase;
+				position: relative;
+				z-index: 10;
+				}
+			.caption5 {
+				-moz-animation: fadeInLeft 1s ease-in 2s backwards;-webkit-animation: fadeInLeft 1s ease-in 2s backwards;animation: fadeInLeft 1 sease-in 2s backwards;
+				display: block;
+				position: relative;
+				z-index: 10;
+			}
+		}
+		
+	}
+	.btn-shop {
+		border: 2px solid #ffffff;
+		color: #ffffff;
+		display: inline-block;
+		font-size: 17px;
+		font-weight: 400;
+		letter-spacing: 1px;
+		line-height: 40px;
+		margin-top: 0;
+		padding: 0 30px;
+		text-transform: uppercase;
+		&:hover{
+			border-color:#949abb;
+			background:#949abb;
+		}
+	}
+	
+}
+
+//Responsive
+@media (max-width: 992px) {
+  	.vicomage-slider {
+
+	.slick-active{
+	  .slide-caption{
+		.caption1 {
+		  font-size: 250px;
+		  left: 50%;
+		  line-height: 225px;
+		  margin-left: -280px;
+		}
+		.caption2 {
+		  font-size: 45px;
+		}
+		.caption3 {
+		  font-size: 60px;
+		  letter-spacing: 10px;
+		}
+		.caption4 {
+		  font-size: 30px;
+		  letter-spacing: 5px;
+		}
+	  }
+
+	}
+	.btn-shop {
+	  font-size: 15px;
+	  line-height: 35px;
+	}
+
+  }
+
+
+
+}
+
+@media (max-width: 767px) {
+  .vicomage-slider {
+
+	.slick-active{
+	  .slide-caption{
+		.caption1 {
+		  font-size: 200px;
+		  line-height: 180px;
+		  margin-left: -225px;
+		}
+		.caption2 {
+		  font-size: 35px;
+		  line-height: 1;
+		}
+		.caption3 {
+		  font-size: 45px;
+		  letter-spacing: 8px;
+		}
+		.caption4 {
+		  font-size: 22px;
+		  letter-spacing: 4px;
+		}
+	  }
+
+	}
+
+  }
+}
+
+@media (max-width: 480px) {
+  .vicomage-slider {
+	.slick-dots {
+		bottom: 10px;
+	}
+	.slick-active{
+	  .slide-caption{
+		.caption1 {
+			font-size: 90px;
+			line-height: 85px;
+			margin-left: -100px;
+		}
+		.caption2 {
+		  font-size: 20px;
+		}
+		.caption3 {
+		  font-size: 25px;
+		  letter-spacing: 3px;
+		  margin: 2px 0;
+		}
+		.caption4 {
+		  font-size: 14px;
+		  letter-spacing: 2px;
+		}
+		.caption5 {
+		  margin: 5px 0 0;
+		}
+	  }
+
+	}
+	.btn-shop {
+	  border-width: 1px;
+	  font-size: 11px;
+	  line-height: 25px;
+	  padding: 0 12px;
+	}
+
+  }
+}
+
+}
+
+
+

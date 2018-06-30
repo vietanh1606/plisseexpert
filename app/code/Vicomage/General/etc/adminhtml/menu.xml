@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Vicomage_General::vicomage_setting" title="Setting" module="Vicomage_General" sortOrder="1" parent="Vicomage_Core::vicomage_manage" resource="Vicomage_Color::vicomage_setting"/>
+        <add id="Vicomage_General::vicomage_general" title="General Setting" module="Vicomage_General" sortOrder="11" parent="Vicomage_General::vicomage_setting" action="adminhtml/system_config/edit/section/vicomage_general_config" resource="Vicomage_General::vicomage_general"/>
+        <add id="Vicomage_General::vicomage_color_setting" title="Color Setting" module="Vicomage_General" sortOrder="12" parent="Vicomage_General::vicomage_setting" action="adminhtml/system_config/edit/section/vicomage_color_config" resource="Vicomage_General::vicomage_color_setting"/>
+    </menu>
+</config>

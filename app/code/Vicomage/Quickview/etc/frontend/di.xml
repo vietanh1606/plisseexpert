@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Result\Page">
+        <plugin name="vicomage-quickview-resultpage"
+                type="Vicomage\Quickview\Plugin\ResultPage" sortOrder="1"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="vicomage-quickview-block-product-view"
+                type="Vicomage\Quickview\Plugin\BlockProductView" sortOrder="1"/>
+    </type>
+     <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="vicomage-quickview-block-product-list"
+                type="Vicomage\Quickview\Plugin\BlockProductList"
+                sortOrder="10"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin name="vicomage-quickview-block-product-view-gallery"
+                type="Vicomage\Quickview\Plugin\BlockProductViewGallery" sortOrder="5"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin name="vicomage-quickview-block-product-view-gallery-magnifier"
+                type="Vicomage\Quickview\Plugin\BlockProductViewGalleryMagnifier" sortOrder="15"/>
+    </type>
+</config>

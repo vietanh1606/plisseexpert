@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <megamenu>
+    <item>
+      <label><![CDATA[Shop]]></label>
+      <menu_type><![CDATA[2]]></menu_type>
+      <url><![CDATA[]]></url>
+      <position><![CDATA[1]]></position>
+      <columns><![CDATA[1]]></columns>
+      <custom_class><![CDATA[menu-right first]]></custom_class>
+      <html_label><![CDATA[]]></html_label>
+      <status><![CDATA[1]]></status>
+      <store><![CDATA[0]]></store>
+      <category_id><![CDATA[3]]></category_id>
+      <top_content><![CDATA[]]></top_content>
+      <bottom_content><![CDATA[]]></bottom_content>
+      <left_content><![CDATA[]]></left_content>
+      <left_col><![CDATA[0]]></left_col>
+      <right_content><![CDATA[]]></right_content>
+      <right_col><![CDATA[0]]></right_col>
+      <menu_ef><![CDATA[2]]></menu_ef>
+      <static_width><![CDATA[]]></static_width>
+      <category_label><![CDATA[]]></category_label>
+      <fake_name><![CDATA[Shop]]></fake_name>
+      <subcategory_columns><![CDATA[1]]></subcategory_columns>
+      <main_content><![CDATA[<div class="row content-category-menu">
+	<div class="menu-left-block static-content col-sm-7">
+		<div class="content-category-demo">
+			<p class="mega-block-title">Category Page</p>
+			<ul class="mega-block row">
+				<li class="item col-sm-3">
+					<a href="{{config path="web/unsecure/base_url"}}shops.html"><span class="figure"><img class="img-responsive" src="{{media url="wysiwyg/vicomage/megamenu/left-column.png"}}" ></span> <span class="figcaption ">left column</span></a>
+				</li>
+				<li class="item col-sm-3">
+					<a href="{{config path="web/unsecure/base_url"}}shops/womens/furniture.html"><span class="figure"><img class="img-responsive" src="{{media url="wysiwyg/vicomage/megamenu/left-right-column.png"}}" alt=""></span> <span class="figcaption ">left, right column</span></a>
+				</li>
+				<li class="item col-sm-3">
+					<a href="{{config path="web/unsecure/base_url"}}shops/womens.html"><span class="figure"><img class="img-responsive" src="{{media url="wysiwyg/vicomage/megamenu/right-column.png"}}" alt=""></span> <span class="figcaption ">right column</span></a>
+				</li>
+				<li class="item col-sm-3">
+					<a href="{{config path="web/unsecure/base_url"}}shops/mens/kids.html"><span class="figure"><img class="img-responsive" src="{{media url="wysiwyg/vicomage/megamenu/no-column.png"}}" alt=""></span> <span class="figcaption ">without columns</span></a>
+				</li> 
+			</ul>
+		</div>
+	</div>
+	<ul class="subchildmenu mega-columns columns2 col-sm-5">
+		<li class=" ui-menu-item level1 parent">
+			<a class="level-top" href="#">Shop Categories</a>
+			<div class="open-children-toggle"></div>
+			<ul class="subchildmenu submenu">
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}shops/mens/accessories.html"><span>2 column product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}shops.html"><span>3 column product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}shops/mens/digital.html"><span>4 column product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}shops/mens/kids.html"><span>5 column product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}shops/mens.html"><span>6 column product</span></a></li>
+			</ul>
+		</li>
+		<li class=" ui-menu-item level1 parent">
+			<a class="level-top" href="#">Products Types</a>
+			<div class="open-children-toggle"></div>
+			<ul class="subchildmenu submenu">
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}nike-as-dri-fit-training-7.html"><span>Simple Product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}configurable-product.html"><span>Configurable Product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}downloadable-product.html"><span>Downloadable Product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}grouped-product.html"><span>Grouped Product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}virtual-product.html"><span>Virtual Product</span></a></li>
+				<li class=" ui-menu-item level2 "><a href="{{config path="web/unsecure/base_url"}}bundle-product.html"><span>Bundle Product</span></a></li>
+			</ul>
+		</li>
+	</ul>
+</div>]]></main_content>
+    </item>
+    <item>
+      <label><![CDATA[Page]]></label>
+      <menu_type><![CDATA[2]]></menu_type>
+      <url><![CDATA[]]></url>
+      <position><![CDATA[2]]></position>
+      <columns><![CDATA[1]]></columns>
+      <custom_class><![CDATA[menu-right]]></custom_class>
+      <html_label><![CDATA[]]></html_label>
+      <status><![CDATA[1]]></status>
+      <store><![CDATA[0]]></store>
+      <category_id><![CDATA[3]]></category_id>
+      <top_content><![CDATA[]]></top_content>
+      <bottom_content><![CDATA[]]></bottom_content>
+      <left_content><![CDATA[]]></left_content>
+      <left_col><![CDATA[0]]></left_col>
+      <right_content><![CDATA[]]></right_content>
+      <right_col><![CDATA[0]]></right_col>
+      <menu_ef><![CDATA[1]]></menu_ef>
+      <static_width><![CDATA[]]></static_width>
+      <category_label><![CDATA[]]></category_label>
+      <fake_name><![CDATA[Page]]></fake_name>
+      <subcategory_columns><![CDATA[1]]></subcategory_columns>
+      <main_content><![CDATA[<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}customer/account/login"><span>Login Page</span></a></li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}customer/account/create"><span>Register page</span></a></li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}customer/account/forgotpassword"><span>Forgot Password</span></a></li>
+<li class=" ui-menu-item level1">
+	<a class="level-top" href="{{config path="web/unsecure/base_url"}}about-us"><span>About us</span></a>
+</li>
+<li class=" ui-menu-item level1">
+	<a class="level-top" href="{{config path="web/unsecure/base_url"}}contact"><span>Contact us</span></a>
+</li>
+<li class=" ui-menu-item level1">
+	<a class="level-top" href="{{config path="web/unsecure/base_url"}}blog"><span>Blog</span></a>
+</li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}faq"><span>Faq</span></a></li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}customer-service"><span>Customer Service</span></a></li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}privacy-policy-cookie-restriction-mode"><span>Privacy Policy</span></a></li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}wishlist"><span>Wishlist</span></a></li>
+<li class=" ui-menu-item level1 "><a class="level-top" href="{{config path="web/unsecure/base_url"}}no-route"><span>Page Not Found</span></a></li>]]></main_content>
+    </item>
+    <item>
+      <label><![CDATA[Blog]]></label>
+      <menu_type><![CDATA[2]]></menu_type>
+      <url><![CDATA[blog]]></url>
+      <position><![CDATA[3]]></position>
+      <columns><![CDATA[1]]></columns>
+      <custom_class><![CDATA[menu-right]]></custom_class>
+      <html_label><![CDATA[]]></html_label>
+      <status><![CDATA[1]]></status>
+      <store><![CDATA[0]]></store>
+      <category_id><![CDATA[3]]></category_id>
+      <top_content><![CDATA[]]></top_content>
+      <bottom_content><![CDATA[]]></bottom_content>
+      <left_content><![CDATA[]]></left_content>
+      <left_col><![CDATA[0]]></left_col>
+      <right_content><![CDATA[]]></right_content>
+      <right_col><![CDATA[0]]></right_col>
+      <menu_ef><![CDATA[1]]></menu_ef>
+      <static_width><![CDATA[]]></static_width>
+      <category_label><![CDATA[]]></category_label>
+      <fake_name><![CDATA[Blog]]></fake_name>
+      <subcategory_columns><![CDATA[1]]></subcategory_columns>
+      <main_content><![CDATA[]]></main_content>
+    </item>
+    <item>
+      <label><![CDATA[]]></label>
+      <menu_type><![CDATA[1]]></menu_type>
+      <url><![CDATA[]]></url>
+      <position><![CDATA[0]]></position>
+      <columns><![CDATA[7]]></columns>
+      <custom_class><![CDATA[]]></custom_class>
+      <html_label><![CDATA[]]></html_label>
+      <status><![CDATA[1]]></status>
+      <store><![CDATA[0]]></store>
+      <category_id><![CDATA[5]]></category_id>
+      <top_content><![CDATA[]]></top_content>
+      <bottom_content><![CDATA[]]></bottom_content>
+      <left_content><![CDATA[]]></left_content>
+      <left_col><![CDATA[0]]></left_col>
+      <right_content><![CDATA[<div class="content-banner-menu menu-right-postion">
+	<div class="banner-inner">
+		<a href="#"><img src="{{media url='wysiwyg/vicomage/megamenu/banner-menu-right.jpg'}}" alt="" /></a>
+	</div>
+</div>]]></right_content>
+      <right_col><![CDATA[5]]></right_col>
+      <menu_ef><![CDATA[3]]></menu_ef>
+      <static_width><![CDATA[800px]]></static_width>
+      <category_label><![CDATA[new]]></category_label>
+      <fake_name><![CDATA[Laptop & Computer]]></fake_name>
+      <subcategory_columns><![CDATA[2]]></subcategory_columns>
+      <main_content><![CDATA[]]></main_content>
+    </item>
+    <item>
+      <label><![CDATA[]]></label>
+      <menu_type><![CDATA[1]]></menu_type>
+      <url><![CDATA[]]></url>
+      <position><![CDATA[0]]></position>
+      <columns><![CDATA[9]]></columns>
+      <custom_class><![CDATA[]]></custom_class>
+      <html_label><![CDATA[]]></html_label>
+      <status><![CDATA[1]]></status>
+      <store><![CDATA[0]]></store>
+      <category_id><![CDATA[6]]></category_id>
+      <top_content><![CDATA[]]></top_content>
+      <bottom_content><![CDATA[]]></bottom_content>
+      <left_content><![CDATA[]]></left_content>
+      <left_col><![CDATA[0]]></left_col>
+      <right_content><![CDATA[<div class="content-banner-menu menu-right-postion menu-sale-postion">
+	<div class="banner-inner">
+		<a href="#"><img src="{{media url='wysiwyg/vicomage/megamenu/banner-menu-sale.png'}}" alt="" /></a>
+	</div>
+</div>]]></right_content>
+      <right_col><![CDATA[3]]></right_col>
+      <menu_ef><![CDATA[2]]></menu_ef>
+      <static_width><![CDATA[]]></static_width>
+      <category_label><![CDATA[]]></category_label>
+      <fake_name><![CDATA[Accessories]]></fake_name>
+      <subcategory_columns><![CDATA[3]]></subcategory_columns>
+      <main_content><![CDATA[]]></main_content>
+    </item>
+  </megamenu>
+</root>

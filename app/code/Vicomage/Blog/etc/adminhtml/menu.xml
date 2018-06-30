@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Vicomage_Blog::elements" title="Blog" module="Vicomage_Blog" parent="Vicomage_Core::vicomage_manage" sortOrder="2"  resource="Vicomage_Blog::elements"/>
+        <add id="Vicomage_Blog::post" title="Posts" module="Vicomage_Blog" parent="Vicomage_Blog::elements" sortOrder="10" action="blog/post/" resource="Vicomage_Blog::post"/>
+        <add id="Vicomage_Blog::category" title="Categories" module="Vicomage_Blog" parent="Vicomage_Blog::elements" sortOrder="20" action="blog/category/" resource="Vicomage_Blog::category"/>
+        <add id="Vicomage_Blog::config_blog" title="Configuration" module="Vicomage_Blog" parent="Vicomage_Blog::elements" sortOrder="40" action="adminhtml/system_config/edit/section/vicomage_mfblog/" resource="Vicomage_Blog::config_blog"/>
+    </menu>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Vicomage_ImportExport::vicomage_importexport" title="Vicomage Tools" module="Vicomage_ImportExport" sortOrder="100" parent="Vicomage_Core::vicomage_manage" resource="Vicomage_ImportExport::vicomage_importexport"/>
+        <add id="Vicomage_ImportExport::import" title="Import" module="Vicomage_ImportExport" sortOrder="1" parent="Vicomage_ImportExport::vicomage_importexport" action="importexport/import/index" resource="Vicomage_ImportExport::import"/>
+        <add id="Vicomage_ImportExport::vicommage_export_pages" title="Export Page" module="Vicomage_ImportExport" sortOrder="1" parent="Vicomage_ImportExport::vicomage_importexport" action="importexport/export/page" resource="Vicomage_ImportExport::vicommage_export_page"/>
+        <add id="Vicomage_ImportExport::vicommage_export_blocks" title="Export Block" module="Vicomage_ImportExport" sortOrder="2" parent="Vicomage_ImportExport::vicomage_importexport" action="importexport/export/block" resource="Vicomage_ImportExport::vicommage_export_block"/>
+        <add id="Vicomage_ImportExport::vicommage_export_system" title="Export System Config" module="Vicomage_ImportExport" sortOrder="3" parent="Vicomage_ImportExport::vicomage_importexport" action="importexport/export/system" resource="Vicomage_ImportExport::importexport_export_system"/>
+        <add id="Vicomage_ImportExport::vicommage_export_menu" title="Export Mega Menu" module="Vicomage_ImportExport" sortOrder="4" parent="Vicomage_ImportExport::vicomage_importexport" action="importexport/export/menu" resource="Vicomage_ImportExport::importexport_export_menu"/>
+        <add id="Vicomage_ImportExport::vicommage_export_slider" title="Export Slider" module="Vicomage_ImportExport" sortOrder="5" parent="Vicomage_ImportExport::vicomage_importexport" action="importexport/export/slider" resource="Vicomage_ImportExport::importexport_export_slider"/>
+    </menu>
+</config>

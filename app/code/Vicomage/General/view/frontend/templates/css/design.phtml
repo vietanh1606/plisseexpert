@@ -1,0 +1,91 @@
+<?php
+/**
+ * @var $block \Vicomage\General\Block\Adminhtml\System\Config\Color
+ */
+$baseConfig = $block->getBaseColor();
+$headerConfig = $block->getHeaderColor();
+$contentConfig = $block->getContentColor();
+$footerConfig = $block->getFooterColor();
+?>
+<?php if($baseConfig) :?>
+	<?php foreach($baseConfig as $data):?>
+		<?php if(isset($data['element']) && !empty($data['element'])):?>
+			<?php echo $data['element'];?>{
+				<?php if($data['color'] != null):?>
+					<?php echo 'color: '.$data['color'] ?>;
+				<?php endif;?>
+
+				<?php if($data['bgcolor'] != null):?>
+					<?php echo 'background-color: '.$data['bgcolor'] ?>;
+				<?php endif;?>
+
+				<?php if($data['bdcolor'] != null):?>
+					<?php echo 'border-color: '.$data['bdcolor'] ?>;
+				<?php endif;?>
+				}
+		<?php endif;?>
+	<?php endforeach;?>
+<?php endif;?>
+
+
+<?php if ($headerConfig) :?>
+	<?php foreach($headerConfig as $data):?>
+		<?php if(isset($data['element']) && !empty($data['element'])):?>
+			<?php echo $data['element'];?>{
+			<?php if($data['color'] != null):?>
+				<?php echo 'color: '.$data['color'] ?>;
+			<?php endif;?>
+
+			<?php if($data['bgcolor'] != null):?>
+				<?php echo 'background-color: '.$data['bgcolor'] ?>;
+			<?php endif;?>
+
+			<?php if($data['bdcolor'] != null):?>
+				<?php echo 'border-color: '.$data['bdcolor'] ?>;
+			<?php endif;?>
+			}
+		<?php endif;?>
+	<?php endforeach;?>
+<?php endif;?>
+
+
+
+<?php if ($contentConfig) :?>
+	<?php foreach($contentConfig as $data):?>
+		<?php if(isset($data['element']) && !empty($data['element'])):?>
+			<?php echo $data['element'];?>{
+				<?php if($data['color'] != null):?>
+					<?php echo 'color: '.$data['color'] ?>;
+				<?php endif;?>
+
+				<?php if($data['bgcolor'] != null):?>
+					<?php echo 'background-color: '.$data['bgcolor'] ?>;
+				<?php endif;?>
+
+				<?php if($data['bdcolor'] != null):?>
+					<?php echo 'border-color: '.$data['bdcolor'] ?>;
+				<?php endif;?>
+			}
+		<?php endif;?>
+	<?php endforeach;?>
+<?php endif;?>
+
+<?php if ($footerConfig) :?>
+	<?php foreach($footerConfig as $data):?>
+		<?php if(isset($data['element']) && !empty($data['element'])):?>
+			<?php echo $data['element'];?>{
+			<?php if($data['color'] != null):?>
+			<?php echo 'color: '.$data['color'] ?>;
+			<?php endif;?>
+
+			<?php if($data['bgcolor'] != null):?>
+			<?php echo 'background-color: '.$data['bgcolor'] ?>;
+			<?php endif;?>
+
+			<?php if($data['bdcolor'] != null):?>
+			<?php echo 'border-color: '.$data['bdcolor'] ?>;
+			<?php endif;?>
+			}
+		<?php endif;?>
+	<?php endforeach;?>
+<?php endif;?>

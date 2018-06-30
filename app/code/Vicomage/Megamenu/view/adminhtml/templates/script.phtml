@@ -1,0 +1,45 @@
+<script type="text/javascript">
+    require([
+    'jquery'
+], function ($) {
+      $(document).ready(function($) {
+		setMainGereral();
+		setStaticWith();
+		$("#megamenu_menu_type").change(function () {
+			setMainGereral();
+		});
+		$("#megamenu_menu_ef").change(function () {
+			setStaticWith();
+		});
+	});
+	function setStaticWith() {
+		var menuEff = $("#megamenu_menu_ef").val();
+		if (menuEff == 3) {
+			$('#megamenu_static_width').parent().parent().show();
+		} else {
+			$('#megamenu_static_width').parent().parent().hide();
+		}
+	}
+	function setMainGereral() {
+		var menuType = $("#megamenu_menu_type").val();
+		if (menuType == 1) {
+			$('a#megamenu_tabs_static').parent().show();
+			$('a#megamenu_tabs_static_main').parent().hide();
+
+			$('#megamenu_subcategory_columns').parent().parent().show();
+			$('#megamenu_columns').parent().parent().show();
+			$('.mega_category_name').parent().parent().hide();
+			$('#megamenu_tabs_category').show();
+		}
+		else {
+			$('a#megamenu_tabs_static').parent().hide();
+			$('a#megamenu_tabs_static_main').parent().show();
+
+			$('#megamenu_subcategory_columns').parent().parent().hide();
+			$('#megamenu_columns').parent().parent().hide();
+			$('.mega_category_name').parent().parent().show();
+			$('#megamenu_tabs_category').hide();
+		}
+	}
+});
+</script>

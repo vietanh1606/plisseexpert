@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+		<referenceContainer name="head.additional">
+			<block class="Vicomage\General\Block\Template" name="config.theme.setting" template="html/config.phtml"/>
+		</referenceContainer>
+		<referenceContainer name="after.body.start">
+            <block class="Magento\Newsletter\Block\Subscribe" name="newsletter_popup" template="subscribe_popup.phtml" before="-"/>
+        </referenceContainer>
+		<referenceBlock name="header.links">
+			<block class="Magento\Framework\View\Element\Template" name="catalog.compare.link" before="-"
+                   template="Magento_Catalog::product/compare/link.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="compareProducts" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="my-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">My Cart</argument>
+                    <argument name="path" xsi:type="string">checkout/cart</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="my-link1">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Checkout</argument>
+                    <argument name="path" xsi:type="string">checkout</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Wishlist\Block\Link" name="wish-list-link" after="catalog.compare.link">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">My Wish List</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Customer\Block\Account\Link" name="my-account-link">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">My Account</argument>
+				</arguments>
+			</block>
+			<block class="Magento\Customer\Block\Account\RegisterLink" name="register-link">
+				<arguments>
+					<argument name="label" xsi:type="string" translate="true">Register</argument>
+				</arguments>
+			</block>
+		    <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+           template="account/link/authorization.phtml"/>
+			
+		 </referenceBlock> 
+		<referenceContainer name="page.wrapper">
+            <block class="Vicomage\General\Block\Template" name="vico_header" template="html/header.phtml" before="main.content">
+				<block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">header links dropdown</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
+				<block class="Vicomage\SearchBox\Block\SearchBox" name="searchbox" as="searchbox"
+                   template="Vicomage_SearchBox::searchbox.form.mini.phtml"/>
+				<block class="Magento\Theme\Block\Html\Header\Logo" name="logo_theme">
+                    <arguments>
+						<argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                        <argument name="logo_img_width" xsi:type="number">110</argument>
+						<argument name="logo_img_height" xsi:type="number">33</argument>
+                    </arguments>
+                </block>
+				<block ifconfig="vicomage_megamenu_setting/general/enabled" class="Vicomage\Megamenu\Block\AccordionMegamenu" as="accordion.menu" name="accordion.menu" template="Vicomage_Megamenu::accordion-top.phtml" before="-">
+					<block class="Magento\Store\Block\Switcher" name="accordion.store_switcher" template="Vicomage_Megamenu::stores.phtml"/>
+				</block>
+				<block ifconfig="vicomage_megamenu_setting/general/enabled" class="Vicomage\Megamenu\Block\VerticalMegamenu" as="vertical.menu" name="vertical.menu" template="Vicomage_Megamenu::vertical.phtml" before="-">
+					<block class="Magento\Store\Block\Switcher" name="vertical.store_switcher" template="Vicomage_Megamenu::stores.phtml"/>
+				</block>
+            </block>
+        </referenceContainer>
+        
+        <move element="top.search" destination="vico_header"/>
+        <move element="minicart" destination="vico_header"/>
+        
+        <move element="store_language" destination="vico_header"/>
+        <move element="currency" destination="vico_header"/>
+        <move element="skip_to_content" destination="vico_header"/>
+        <move element="page.top" destination="page.wrapper" after="vico_header"/>
+		<referenceBlock name="logo" remove="true"/>
+        <referenceContainer name="header.container" remove="true"/>
+        <referenceContainer name="header.panel" remove="true"/>
+        <referenceContainer name="header-wrapper" remove="true"/>
+        <referenceContainer name="footer" remove="true"/>
+
+		<move element="navigation.sections" destination="vico_header"/>
+		
+        <referenceContainer name="footer-container">
+            <block class="Vicomage\General\Block\Template" name="footer_block" template="html/footer.phtml">
+				<block class="Magento\Store\Block\Switcher" name="footer.store_switcher" template="switch/stores.phtml"/>
+                <block class="Magento\Newsletter\Block\Subscribe" name="footer.newsletter" template="subscribe_footer.phtml"/>
+				<block class="Magento\Theme\Block\Html\Footer" name="footer.copyright" template="html/copyright.phtml"/>
+            </block>
+        </referenceContainer>
+        
+
+        <referenceBlock name="report.bugs" remove="true"/>
+		<referenceContainer name="wishlist_sidebar" remove="true" />
+		<referenceBlock name="catalog.compare.sidebar" remove="true" />
+		<referenceBlock name="sale.reorder.sidebar" remove="true"/>
+		
+    </body>
+</page>

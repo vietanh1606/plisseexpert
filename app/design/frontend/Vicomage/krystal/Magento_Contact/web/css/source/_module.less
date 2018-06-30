@@ -1,0 +1,78 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+& when (@media-common = true) {
+    .contact-index-index {
+        .page-title-wrapper {
+            display: none;
+        }
+        .fieldset > .legend, .contact-info .contacts-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+        .page-main .contact-info {
+			.contact-info-item {
+				margin-bottom: 15px;
+				overflow: hidden;
+			}
+			.contact-icon {
+				float: left;
+				margin-right: 15px;
+				i {
+					background-color: @theme-color;
+					border-radius: 3px;
+					color: #ffffff;
+					display: inline-block;
+					font-size: 18px;
+					height: 55px;
+					line-height: 55px;
+					text-align: center;
+					width: 55px;
+				}
+			}
+            h3 {
+				color: #333333;
+				font-size: 14px;
+				font-weight: 600;
+				margin: 0;
+				padding-top: 10px;
+			}
+           p {
+				color: #888888;
+				font-size: 13px;
+				line-height: 18px;
+			}
+        }
+    }
+	.contact-map iframe {
+		width: 100%;
+	}
+	.contact-content {
+		padding: 30px 0 0;
+		textarea {
+			border-color: #dddddd;
+			height: 160px;
+		}
+		.block-title {
+			font-weight: 500;
+			line-height: normal;
+			margin: 0 0 20px;
+			padding: 0;
+			position: relative;
+			text-align: left;
+			strong {
+				font-size: 18px;
+				font-weight: 600;
+			}
+		}
+	}
+	
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    
+}

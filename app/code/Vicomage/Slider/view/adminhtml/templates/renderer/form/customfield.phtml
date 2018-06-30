@@ -1,0 +1,158 @@
+<div class="content-all-effect-image" id="content_all_effect_image">
+	<div class="content-effect-lable" id="content_effect_lable" style="display:none;">Effect Transition</div>
+</div>
+<?php if($block->getId()!=0) : ?>
+<?php
+	$data= $block->numberImage($block->getId());
+	$num=(int)$data["number"];
+	$dataimage=json_decode($data["slider_param"],true);
+?>
+
+<input id="item_number" name="number" data-ui-id="s	lider-items-edit-form-fieldset-element-hidden-number" value="<?php echo $num; ?>" type="hidden">
+<table class="data-grid" id="vicomage_slider_slider_setting" style="margin-bottom:15px;">
+	<thead>
+			<th data-sort="image" data-direction="asc" class="data-grid-th" style="text-align:center;"><span>Image</span></th>
+			<th data-sort="insert" data-direction="asc" class="data-grid-th" style="text-align:center;"><span>Choose Image</span></th>
+			<th data-sort="description" data-direction="asc" class="data-grid-th" style="text-align:center;"><span>Description</span></th>
+			<th data-sort="url" data-direction="asc" class="data-grid-th" style="text-align:center;"><span>URL</span></th>
+			<th data-sort="id" data-direction="asc" class="data-grid-th" style="text-align:center;"><span>Position</span></th>
+			<th data-sort="delete" data-direction="asc" class="data-grid-th" style="text-align:center;"><span>Delete</span></th>
+
+		</tr>
+	</thead>
+<tbody class="data-image-wrap" id="data_image_wrap">
+<?php $i=1; ?>
+<?php foreach ($dataimage as $datacontent) : ?>
+
+	<tr class="data-image" id="<?php echo "data_image_".$i; ?>">
+		<td class="td-image" >
+			<?php if($datacontent['image']!="") :?>
+				<a href="#"  class="a-image" data-ui-id="slider-items-edit-form-fieldset-element-file-image-link"><img src="<?php echo $block->imageResize($datacontent['image'],70,70); ?>" id="<?php echo "item_image_image_".$i; ?>" title="" alt="" height="70" width="70" class="small-image-preview v-middle" data-ui-id="slider-items-edit-form-fieldset-element-file-image"></a>
+			<?php endif; ?>
+		</td>
+		<td class="">
+			<div class="admin__field-control control">
+				<input id="<?php echo "item_image_".$i; ?>" name="<?php echo "image_".$i; ?>" data-ui-id="slider-items-edit-form-fieldset-element-file-image" value="" title="Image" type="file" class="input-file new-image">
+				<input type="hidden" name="<?php echo "image_".$i."[value]"; ?>" value="<?php echo $datacontent['image']; ?>" class="hidden">
+				<div class="note" id="image-note">File types: jpg, jpeg, gif, png</div>
+			</div>
+
+		</td>
+		<td class="td-desc" >
+			<div class="wrap-desciption" id="wrap_desciption_<?php echo $i ?>">
+				<div class="wrap-desciption-content" id="wrap_desciption_content_<?php echo $i ?>">
+					<div class="admin__field-control control">
+						<textarea id="item_description_<?php echo $i ?>" name="description_<?php echo $i ?>" value="" title="Description" type="text" class="input-text-large input-description" innerHTML><?php echo $datacontent['description'] ?></textarea>
+					</div>
+				</div>
+			</div>
+		</td>
+		<td class="td-link">
+				<input id="<?php echo "item_url_".$i; ?>" name="<?php echo "link_url_".$i; ?>"  value="<?php echo $datacontent["url"]; ?>" title="URL" type="text" class="input-text  input-url">
+		</td>
+		<td class="td-pos">
+			<div><input id="<?php echo "item_position_".$i; ?>" name="<?php echo "position_".$i; ?>" value="<?php echo $datacontent["position"]; ?>" title="Item Position" type="text" class="input-text-small position-new"></div>
+		</td>
+		<td class="td-delete">
+				<input type="checkbox" name="<?php echo "delete_image_".$i ?>" value="1" class="checkbox" id="<?php echo "delete_image_".$i; ?>" />
+		</td>
+	</tr>
+	<?php $i=$i+1; ?>
+<?php endforeach; ?>
+<?php else: ?>
+<input id="item_number" name="number" data-ui-id="slider-items-edit-form-fieldset-element-hidden-number" value="1" type="hidden">
+<table class="data-grid" id="vicomage_slider_slider_setting">
+	<thead>
+		<tr>
+			<th data-sort="image" data-direction="asc" class="" style="text-align:center;"><span>Image</span></th>
+			<th data-sort="insert" data-direction="asc" class="" style="text-align:center;"><span>Choose Image</span></th>
+			<th data-sort="description" data-direction="asc" class="" style="text-align:center;"><span>Description</span></th>
+			<th data-sort="url" data-direction="asc" class="" style="text-align:center;"><span>URL</span></th>
+			<th data-sort="id" data-direction="asc" class="" style="text-align:center;"><span>Position</span></th>
+			<th data-sort="delete" data-direction="asc" class="" style="text-align:center;"><span>Delete</span></th>
+		</tr>
+	</thead>
+<tbody class="data-image-wrap" id="data_image_wrap">
+	<tr class="data-image" id="data_image_1" style="">
+		<td></td>
+		<td class="" >
+			<div class="admin__field-control control">
+				<input id="item_image_1" name="image_1" data-ui-id="slider-items-edit-form-fieldset-element-file-image" value="" title="Image" type="file" class="input-file new-image">
+				<div class="note" id="image-note">Allowed file types: jpg, jpeg, gif, png</div>
+			</div>
+		</td>
+
+		<td class="" >
+			<div class="wrap-desciption" id="wrap_desciption_1">
+				<div class="wrap-desciption-content" id="wrap_desciption_content_1">
+					<div class="admin__field-control control">
+						<textarea id="item_description_1" name="description_1" data-ui-id="slider-items-edit-form-fieldset-element-text-description" value="" title="Description" type="text" class="input-text-large input-description" innerHTML></textarea>
+					</div>
+				</div>
+			</div>
+		</td>
+		<td class=" " data-ui-id="">
+			<div class="admin__field-control control">
+				<input id="item_url_1" name="link_url_1"  value="" title="URL" type="text" class="input-text input-url">
+			</div>
+		</td>
+		<td class="" data-ui-id="" >
+			<div class="admin__field-control control">
+				<input id="item_position_1" name="position_1"  value="1" title="Item Position" type="text" class="input-text-small position-new">
+			</div>
+		</td>
+		<td class="">
+			<input type="checkbox" name="delete_image_1" value="1" class="checkbox" id="delete_image_1" />
+		</td>
+	</tr>
+
+<?php endif ;?>
+</tbody>
+</table>
+<div class="admin__field field field-width " data-ui-id="slider-items-edit-form-fieldset-element-form-field-width" style="margin-top:15px;">
+	<button id="create_new_image" title="create_new" type="button" class="action-default scalable save primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" data-ui-id="#" role="button" aria-disabled="false"><span class="ui-button-text">
+    <span>Add More Banner</span>
+	</span></button>
+</div>
+<script type="text/javascript">
+	require([
+        "jquery",
+		"jquery/ui"
+		],function($){
+			$("button#create_new_image").click(function( event ) {
+				var $div = $('tr[id^="data_image"]:last');
+				var id= parseInt( $div.prop("id").match(/\d+/g), 10 );
+				var num = id +1;
+				var $klon = $div.clone(true).prop('id', 'data_image_'+num ).insertAfter($('tr[id^="data_image"]:last'));
+				// position
+				$klon.find('.position-new').prop('id', 'item_position_'+num);
+				$klon.find('.position-new').prop('name', 'position_'+num);
+				$klon.find('.position-new').prop('value', '1');
+				//image
+				$klon.find('.small-image-preview').remove();
+				$klon.find('.delete-image').remove();
+				$klon.find('.new-image').prop('id','item_image_'+num);
+				$klon.find('.new-image').prop('name','image_'+num);
+				$klon.find('.new-image').prop('value',"");
+				$klon.find('.hidden').remove();
+				//url
+				$klon.find('.input-url').prop('name','link_url_'+num);
+				$klon.find('.input-url').prop('id','item_url_'+num);
+				$klon.find('.input-url').prop('value','');
+				//delete
+				$klon.find('.checkbox').prop('name','delete_image_'+num);
+				$klon.find('.checkbox').prop('id','delete_image_'+num);
+				$klon.find('.checkbox').prop('value','0');
+				//button show-transition
+				$klon.find(".wrap-desciption").prop("id","wrap_desciption_"+num);
+				//remove some element
+				$numdes=$klon.find('.number-description').val();
+				//description
+				$klon.find('.input-description').prop('id','item_description_'+num);
+				$klon.find('.input-description').prop('name','description_'+num);
+				$klon.find('.input-description').prop('value','');
+				$('#item_number').prop('value',num);
+				event.preventDefault();
+			});
+        });
+</script>

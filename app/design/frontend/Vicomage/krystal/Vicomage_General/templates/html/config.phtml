@@ -1,0 +1,119 @@
+<?php
+	$_config = $this->helper('Vicomage\General\Helper\Data');
+	$page_layout = $this->getConfig('vicomage_general_config/general/layout');
+    if($page_layout == "full_width") {
+        $page_layout = "layout-fullwidth";
+    } else if($page_layout == "1170") {
+        $page_layout = "layout-1170";
+    } else if($page_layout == "1280") {
+        $page_layout = "layout-1280";
+    }
+    $boxed = $this->getConfig('vicomage_general_config/general/boxed');
+?>
+
+<?php //Include Google fonts character subsets (such as extended latin, cyrillic)
+    $font = $this->getConfig('vicomage_general_config/font');
+    $charSubset = "";
+    if (isset($font['char_latin_ext']) && $font['char_latin_ext']==1 )
+        $charSubset .= ',latin-ext';
+    if (isset($font['char_subset']) && $font['char_subset'])
+        $charSubset .= ','.$font['char_subset'];
+    $font_sizes = "%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic";
+?>
+<?php if (isset($font['custom']) && $font['custom'] && $font['font_family'] == 'google'): ?>
+<link rel="stylesheet" href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $font['google_font_family']).$font_sizes; echo $charSubset; ?>' type='text/css' />
+<?php else: ?>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" type="text/css" media="screen"/>
+<?php endif;?>
+
+<style>
+	<?php
+	if(isset($font['custom']) && $font['custom']==1){
+	?>
+	html, body, .action.primary { 
+	<?php if(isset($font['font_size']) && $font['font_size']){ ?>
+			font-size: <?php echo $font['font_size']; ?>; 
+	<?php }
+		if(isset($font['font_family']) && $font['font_family'] == 'google'){
+	?>
+			font-family: <?php echo $font['google_font_family']; ?>;
+	<?php }
+		elseif (isset($font['font_family']) && $font['font_family'] == 'custom') {
+			if($font['custom_font_family']) {
+	?>
+			font-family: <?php echo $font['custom_font_family']; ?>;
+	<?php } } else { ?>
+			font-family: <?php echo $font['font_family']; ?>;
+	<?php } ?>
+	}
+	<?php } ?> 
+	<?php 
+		$custom_style = $this->getConfig('vicomage_general_config/custom_settings');
+	if ($custom_style['custom_style']): ?>
+		<?php if( $custom_style['custom_style_css'] ){ ?>
+			<?php  echo $custom_style['custom_style_css']; ?>
+		<?php } ?>	
+	<?php endif; ?>
+
+		.layout-fullwidth .navigation, .layout-fullwidth .page-wrapper > .breadcrumbs .items, .layout-fullwidth .page-header .header.panel, .layout-fullwidth .header.content, .layout-fullwidth .footer.content, .layout-fullwidth .page-wrapper > .widget, .layout-fullwidth .page-wrapper > .page-bottom, .layout-fullwidth .block.category.event, .layout-fullwidth .top-container, .layout-fullwidth .page-main, .layout-fullwidth .container {
+			max-width: 100%;
+		}
+
+		.layout-1280 .navigation, .layout-1280 .page-wrapper > .breadcrumbs .items, .layout-1280 .page-header .header.panel, .layout-1280 .header.content, .layout-1280 .footer.content, .layout-1280 .page-wrapper > .widget, .layout-1280 .page-wrapper > .page-bottom, .layout-1280 .block.category.event, .layout-1280 .top-container, .layout-1280 .page-main, .layout-1280 .container {
+			max-width: 1280px;
+		}
+	
+	<?php 
+		$boxed_general = $this->getConfig('vicomage_general_config/general');
+		
+		if($boxed == "boxed") {	?>
+	
+		body.boxed {
+			<?php if( $this->getConfig('vicomage_general_config/general/boxed_bg_img') ){ ?>
+				<?php 
+					$folderName = \Vicomage\General\Model\Config\Backend\Image\Boxed::UPLOAD_DIR;
+					$path = $folderName . '/' . $this->getConfig('vicomage_general_config/general/boxed_bg_img');
+					$imageUrl = $_config->getBaseUrl() . $path;
+				?>
+				background-image:url(<?php echo $imageUrl;?>);
+			<?php } ?>	
+			<?php if( $boxed_general['boxed_custom_style'] ){ ?>
+				<?php  echo $boxed_general['boxed_custom_style']; ?>
+			<?php } ?>
+		}
+		body.boxed.layout-1280 .page-wrapper {
+			max-width: 1280px;
+		}
+		body.boxed.layout-1170 .page-wrapper {
+			max-width: 1170px;
+		}
+		<?php } ?>
+	
+</style>
+<script type="text/javascript">
+require([
+    'jquery'
+], function ($) {
+    $("body").addClass("<?php echo $page_layout; ?>");
+    $("body").addClass("<?php echo $boxed; ?>");
+	<?php if ($this->getConfig('vicomage_general_config/header/header_type') == "7"): ?>
+		$("body").addClass("side-header");
+	<?php endif; ?>
+	<?php if ($this->getConfig('vicomage_general_config/header/sticky_header')): ?>
+	$( document ).ready(function() {
+		if($('.header-sticker').hasClass('sticker')){
+			$(window).scroll(function () {
+				if ($(this).scrollTop() > 500) {
+					$('.header-sticker').addClass('header-container-fixed');
+				}
+				else{
+					$('.header-sticker').removeClass('header-container-fixed');
+				}
+				return false;
+			});
+		}
+	});
+	<?php endif; ?>
+
+});
+</script>

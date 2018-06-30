@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <block>
+    <item>
+      <title><![CDATA[Block Featured Sidebar]]></title>
+      <identifier><![CDATA[block_featured_sidebar]]></identifier>
+      <content><![CDATA[<div class="banner-sidebar">
+<img class="img-responsive" src="{{media url="wysiwyg/vicomage/cms/banner-sidebar.jpg"}}" alt="" />
+</div>
+<div class="section-featured-sidebar section-product-sidebar">
+{{widget type="Vicomage\Multiwidget\Block\Widget" title="Featured Items" identifier="featured-items" status="1" widget_product_type="category" category_ids="5" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^]^]" product_category_collection="random" category_template="widget/category/default-list.phtml" limit="8" slide="1" vertical="false" infinite="false" autoplay="false" arrows="true" dots="false" speed="300" autoplayspeed="3000" rows="4" width-image="300" height-image="300" padding="15" mobile="1" portrait="1" landscape="1" tablet="1" notebook="1" desktop="1" visible="1"}}
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Custom Block Tab]]></title>
+      <identifier><![CDATA[custom_block_tab]]></identifier>
+      <content><![CDATA[<table class="table table-sizing-guide">
+    <thead>
+        <tr>
+            <th colspan="6"><b>Clothing - Single Size Conversion (Continued)</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>UK</td>
+            <td>18</td>
+            <td>20</td>
+            <td>22</td>
+            <td>24</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>European</td>
+            <td>46</td>
+            <td>48</td>
+            <td>50</td>
+            <td>52</td>
+            <td>54</td>
+        </tr>
+        <tr>
+            <td>US</td>
+            <td>14</td>
+            <td>16</td>
+            <td>18</td>
+            <td>20</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>Australia</td>
+            <td>8</td>
+            <td>10</td>
+            <td>12</td>
+            <td>14</td>
+            <td>16</td>
+        </tr>
+    </tbody>
+</table>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Social]]></title>
+      <identifier><![CDATA[block_footer_social]]></identifier>
+      <content><![CDATA[<div class="social-list">
+			<ul class="list-inline">
+				<li><a href="#" class="social-link"><i class="fa fa-facebook"><span class="hidden">facebook</span></i></a></li>
+						<li><a href="#" class="social-link"><i class="fa fa-twitter"><span class="hidden">twitter</span></i></a></li>
+						<li><a href="#" class="social-link"><i class="fa fa-google-plus"><span class="hidden">google</span></i></a></li>
+						<li><a href="#" class="social-link"><i class="fa fa-behance"><span class="hidden">behance</span></i></a></li>
+						<li><a href="#" class="social-link"><i class="fa fa-youtube-play"><span class="hidden">youtube</span></i></a></li>
+			</ul>
+		</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Bottom]]></title>
+      <identifier><![CDATA[block_footer_bottom_home1]]></identifier>
+      <content><![CDATA[<div class="footer-payment">
+	<img src="{{media url="wysiwyg/vicomage/footer/footer-payment.png"}}" alt="" />
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Middle 2]]></title>
+      <identifier><![CDATA[block_footer_middle2_home1]]></identifier>
+      <content><![CDATA[<div class="quick-links">
+	<h3 class="quick-link">Quick Links</h3>
+	<ul>
+		<li><a href="" class="links-primary">Tablets:</a></li>
+		<li><a href="">Windows Tablets</a></li>
+		<li><a href="">Android Tablets</a></li>
+		<li><a href="">Micromax Tablets</a></li>
+		<li><a href="">HCL Tablets </a></li>
+		<li><a href="">Samsung Tablets</a></li>
+		<li><a href="">Lenovo Tablets</a></li>
+		<li><a href="">Asus Tablets</a></li>
+		<li><a href="">Apple Tablets </a></li>
+		<li><a href="">HCL Tablets</a></li>
+		<li><a href="">Samsung Tablets </a></li>
+		<li><a href="">Lenovo</a></li>
+	</ul>
+	<ul>
+		<li><a href="" class="links-primary">Mobiles:</a></li>
+		<li><a href="">Moto E</a></li>
+		<li><a href="">Samsung Mobile</a></li>
+		<li><a href="">Micromax Mobile</a></li>
+		<li><a href="">Nokia Mobile</a></li>
+		<li><a href="">HTC Mobile</a></li>
+		<li><a href="">Sony Mobile</a></li>
+		<li><a href="">Apple Mobile</a></li>
+		<li><a href="">LG Mobile</a></li>
+		<li><a href="">Karbonn Mobile</a></li>
+		<li><a href="">Furniture</a></li>
+		<li><a href="">Lenovo A7000</a></li>
+		<li><a href="">Home Store</a></li>
+	</ul>
+	<ul>
+		<li><a href="" class="links-primary">Watches:</a></li>
+		<li><a href="">The Big Billion Days</a></li>
+		<li><a href="">MOTO X Play</a></li>
+		<li><a href="">Furniture</a></li>
+		<li><a href="">Lenovo A7000</a></li>
+		<li><a href="">Home Store</a></li>
+		<li><a href="">Electronic Sale</a></li>
+		<li><a href="">Offers</a></li>
+	</ul>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Top Home 5]]></title>
+      <identifier><![CDATA[block_footer_top_home5]]></identifier>
+      <content><![CDATA[<div class="section section-manufacture">
+	<div class="container">
+		<div class="brands-wrapper">
+			{{widget type="Vicomage\Brand\Block\Widget\Brand" template="brand.phtml" slide="1" vertical="false" infinite="true" autoplay="false" arrows="true" dots="false" rows="1" speed="300" autoplaySpeed="3000" padding="15" mobile="1" portrait="2" landscape="2" tablet="3" notebook="5" desktop="6" visible="6"}}
+		</div>	
+	</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Footer Middle Home 5]]></title>
+      <identifier><![CDATA[block_footer_middle_home5]]></identifier>
+      <content><![CDATA[<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-mobile-12">
+	<div class="collapsible mobile-collapsible">
+		<h3 class="heading"><span class="block-title">My account</span></h3>
+		<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+		<div class="block-content block-content-statick toggle-content">
+			<ul class="bullet">
+				<li><a href="#">Sign In</a></li>
+				<li><a href="#">View Cart</a></li>
+				<li><a href="#">My Wishlist</a></li>
+				<li><a href="#">Track My Order</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 col-mobile-12">
+	<div class="collapsible mobile-collapsible">
+		<h3 class="heading"><span class="block-title">Contact information</span></h3>
+		<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+		<div class="block-content toggle-content">
+			<div class="block1 block-content-statick">
+				<div class="contacts">
+					<h3 class="contacts-title">Address</h3>
+					<span class="contacts-info">218 Fifth Avenue, HeavenTower NewYork City</span>
+					<h3 class="contacts-title">Phone</h3>
+					<span class="contacts-info">(+68) 123 456 7890</span>
+					<h3 class="contacts-title">Email</h3>
+					<span class="contacts-info">Hot-Support@Krystal.com</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 col-mobile-12">
+	<div class="collapsible mobile-collapsible">
+		<h3 class="heading"><span class="block-title">Information</span></h3>
+		<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+		<div class="block-content block-content-statick toggle-content">
+			<ul class="bullet">
+				<li><a href="#">Delivery information</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Terms &amp; Conditions</a></li>
+				<li><a href="#">Contact us</a></li>
+				<li><a href="#">Sitemap</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 col-mobile-12">
+	<div class="collapsible mobile-collapsible"> 
+		<h3 class="heading"><span class="block-title">newsletter</span></h3>
+		<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+		<div class="block-content block-content-statick">
+			<p class="newsletter-text">Get all the latest information on Events, Sales and Offers. Sign up for newsletter today.</p>
+			{{block class="Magento\Newsletter\Block\Subscribe" name="static.newsletter" template="Magento_Newsletter::subscribe.phtml"}}
+		</div>
+	</div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Home 5 Slide]]></title>
+      <identifier><![CDATA[block_home5_slide]]></identifier>
+      <content><![CDATA[<div class="secsion-home-slide secsion-home3-slide">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 home-slide-left">
+                {{widget type="Vicomage\Slider\Block\Widget\Slider" setIdentity="home5-slide"}}
+            </div>
+            <div class="col-sm-3 home-slide-right">
+                <div class="banner-item default-effect marging-bottom">
+                    <a href="" class="image-wrap"><img class="img-responsive" src="{{media url="wysiwyg/vicomage/static/home5/banner-1.jpg"}}" alt="banner-1"></a>
+                </div>
+                <div class="banner-item default-effect">
+                    <a href="" class="image-wrap"><img class="img-responsive" src="{{media url="wysiwyg/vicomage/static/home5/banner-2.jpg"}}" alt="banner-2"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Block Header Toplink]]></title>
+      <identifier><![CDATA[block_header_toplink]]></identifier>
+      <content><![CDATA[<ul class="nav-top-left krystal-nav">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Faq</a></li>
+					</ul>]]></content>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </block>
+</root>

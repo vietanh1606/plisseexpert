@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Vicomage. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+
+		<referenceContainer name="content">
+
+			<block class="Vicomage\AjaxCartPro\Block\AjaxCart" name="ajax_cart_form" as="ajax_cart_form" template="cart/ajax_cart_form.phtml">
+				 <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+						<item name="types" xsi:type="array"/>
+						<item name="components" xsi:type="array">
+							<item name="ajaxcart_content" xsi:type="array">
+								<item name="component" xsi:type="string">Vicomage_AjaxCartPro/js/ajaxcart</item>
+							</item>
+						</item>
+					</argument>
+				</arguments>
+			</block>
+		</referenceContainer>
+	</body>
+</page>

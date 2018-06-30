@@ -1,0 +1,19 @@
+.themes-grid {
+    text-align: center;
+	.theme-item {
+		border: 1px solid #cccccc;
+		display: inline-block;
+		cursor: pointer;
+		margin: 0 10px 20px;
+		width: 200px;
+		.theme-name {
+			border-top: 1px solid #cccccc;
+			display: block;
+			padding: 10px 0;
+			text-transform: capitalize;
+		}
+		&.active {
+			border-color: #ff0000;
+		}
+	}
+}

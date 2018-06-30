@@ -1,0 +1,210 @@
+<?php
+$optionTheme = $this->getOptionTheme();
+$imageTheme = $this->getImageTheme();
+$currentStore =  $this->getCurrentStoreId();
+?>
+<div class="entry-edit form-inline">
+    <form id="edit_form"
+          action="<?php echo $this->getFormUrl(); ?>"
+          method="post" enctype="multipart/form-data" novalidate="novalidate">
+        <div>
+            <input name="form_key" type="hidden" value="<?php echo $this->getFormKey(); ?>">
+
+            <?php if($currentStore != null) :?>
+                <input name="scope" type="hidden" value="stores">
+                <input name="scope_id" type="hidden" value="<?php echo $currentStore?>">
+            <?php endif;?>
+        </div>
+
+
+        <fieldset class="fieldset admin__fieldset " id="base_fieldset">
+            <legend class="admin__legend legend">
+                <span>Select Theme</span>
+            </legend>
+            <br>
+            <div class="messages">
+            </div>
+
+            <div class="admin__field field field-theme_template image-theme"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-theme-template">
+                <ul class="themes-grid">
+                    <?php foreach ($imageTheme as $path => $data): ?>
+                        <li class="theme-item" data="<?php echo $path ?>">
+                            <div class="image-theme">
+                                <img src="<?php echo $data['image']; ?>"/>
+                            </div>
+                            <span class="theme-name">
+                            <?php echo $data['title'];?>
+                        </span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+
+            <div class="admin__field field field-theme_path  required _required"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-theme-path">
+                <div class="admin__field-control control">
+
+                    <select id="theme_path" name="theme_path" title="Theme"
+                            class="hidden required-entry _required select admin__control-select"
+                            data-ui-id="vicomage-tool-import-form-fieldset-element-select-theme-path"
+                            aria-required="true">
+                        <?php $i = 0;
+                        foreach ($optionTheme as $option): $i++; ?>
+                            <option <?php echo ($i == 1) ? "selected='selected'" : null; ?>
+                                    value="<?php echo $option['value'] ?>"><?php echo $option['label'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="admin__field field field-config  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-config">
+                <label class="label admin__field-label" for="config"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-config-label"><span>System Config</span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="config" name="config"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-config"
+                                                     value="1" title="System Config" checked="checked"
+                                                     type="checkbox"><label class="addafter" for="config">
+                            <small> STORES &gt; Configuration</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-page  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-page">
+                <label class="label admin__field-label" for="page"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-page-label"><span>Pages</span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="page" name="page"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-page"
+                                                     value="1" title="Pages" checked="checked" type="checkbox"><label
+                                class="addafter" for="page">
+                            <small> CONTENT &gt; Pages</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-overwrite_page  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-overwrite-page">
+                <label class="label admin__field-label" for="overwrite_page"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-overwrite-page-label"><span></span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="overwrite_page" name="overwrite_page"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-overwrite-page"
+                                                     value="1" title="Overwrite Existing Pages" checked="checked"
+                                                     type="checkbox"><label class="addafter" for="overwrite_page">
+                            <small> Overwrite Existing Pages</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-block  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-block">
+                <label class="label admin__field-label" for="block"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-block-label"><span>Blocks</span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="block" name="block"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-block"
+                                                     value="1" title="Blocks" checked="checked" type="checkbox"><label
+                                class="addafter" for="block">
+                            <small> CONTENT &gt; Blocks</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-overwrite_block  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-overwrite-block">
+                <label class="label admin__field-label" for="overwrite_block"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-overwrite-block-label"><span></span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="overwrite_block" name="overwrite_block"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-overwrite-block"
+                                                     value="1" title="Overwrite Existing Blocks" checked="checked"
+                                                     type="checkbox"><label class="addafter" for="overwrite_block">
+                            <small> Overwrite Existing Blocks</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-menu  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-menu">
+                <label class="label admin__field-label" for="menu"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-menu-label"><span>Menu</span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="menu" name="menu"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-menu"
+                                                     value="1" title="Menu" checked="checked" type="checkbox"><label
+                                class="addafter" for="menu">
+                            <small> Vicomage &gt; Mega Menu Items</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-slider  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-slider">
+                <label class="label admin__field-label" for="slider"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-slider-label"><span>Slider</span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="slider" name="slider"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-slider"
+                                                     value="1" title="Slider" checked="checked" type="checkbox"><label
+                                class="addafter" for="slider">
+                            <small> Vicomage &gt; Slideshow</small>
+                        </label></div>
+                </div>
+            </div>
+
+            <div class="admin__field field field-overwrite_slider  with-addon"
+                 data-ui-id="vicomage-tool-import-form-fieldset-element-form-field-overwrite-slider">
+                <label class="label admin__field-label" for="overwrite_slider"
+                       data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-overwrite-slider-label"><span></span></label>
+                <div class="admin__field-control control">
+                    <div class="admin__field"><input id="overwrite_slider" name="overwrite_slider"
+                                                     data-ui-id="vicomage-tool-import-form-fieldset-element-checkbox-overwrite-slider"
+                                                     value="1" title="Overwrite Existing Slider" checked="checked"
+                                                     type="checkbox"><label class="addafter" for="overwrite_slider">
+                            <small> Overwrite Existing Slider</small>
+                        </label></div>
+                </div>
+            </div>
+
+
+        </fieldset>
+
+    </form>
+</div>
+<script>
+    require([
+        'jquery',
+        'mage/backend/form',
+        'mage/backend/validation'
+    ], function ($) {
+
+        $(document).ready(function () {
+            $('div.image-theme ul li').click(function () {
+                var currentElemet = $(this).addClass('active');
+                currentElemet.siblings().removeClass('active');
+                var imgpath = $(this).attr('data');
+                $('select#theme_path').val(imgpath);
+            });
+        });
+
+        $('#edit_form').form()
+            .validation({
+                validationUrl: '',
+                highlight: function (element) {
+                    var detailsElement = $(element).closest('details');
+                    if (detailsElement.length && detailsElement.is('.details')) {
+                        var summaryElement = detailsElement.find('summary');
+                        if (summaryElement.length && summaryElement.attr('aria-expanded') === "false") {
+                            summaryElement.trigger('click');
+                        }
+                    }
+                    $(element).trigger('highlight.validate');
+                }
+            });
+
+    });
+</script>

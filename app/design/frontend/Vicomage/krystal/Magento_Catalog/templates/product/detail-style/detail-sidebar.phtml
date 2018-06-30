@@ -1,0 +1,29 @@
+<?php
+	$vico_helper = $this->helper('Vicomage\General\Helper\Data');
+	$product_config = $vico_helper->getConfig('vicomage_general_config/product');	
+	$detailStyle = $product_config['detail_style'];
+?>
+
+<div class="product-view <?php if($detailStyle == '2columns-right'){ ?> columns-right <?php } ?>">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 sidebar">
+				<?php echo $block->getChildHtml('accordion.menu.sidebar'); ?>
+				<?php echo $block->getChildHtml('compare.sidebar.detail'); ?>
+				<?php 
+				$blockside = $block->getLayout()->createBlock('Magento\Cms\Block\Block');
+				if($product_config['side_custom_block']){
+					echo $blockside->setBlockId($product_config['side_custom_block'])->toHtml();
+				}
+				?>
+			</div>
+			<div class="col-lg-9 col-md-9 content-detail">
+				<?php echo $block->getChildHtml('product.view'); ?>
+				<?php echo $block->getChildHtml('product.details.bottom'); ?>
+				<?php echo $block->getChildHtml('related.product'); ?>
+				<?php echo $block->getChildHtml('upsell.product'); ?>
+			</div>
+			
+		</div>
+	</div>
+</div>

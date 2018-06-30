@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Vicomage_Core::vicomage_manage" title="Vicomage" module="Vicomage_Core" sortOrder="11" resource="Vicomage_Core::vicomage_manage"/>
+    </menu>
+</config>

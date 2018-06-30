@@ -1,0 +1,126 @@
+<?php
+/**
+ * Blog related posts template
+ *
+ * @var $block \Vicomage\Blog\Block\Post\View\RelatedPosts
+ */
+?>
+<?php if ($block->displayPosts()) { ?>
+    <?php $_postCollection = $block->getPostCollection(); ?>
+    <?php if ($_postCollection->count()) { ?>
+<div class="latest-blog-home">
+	<div class="post-list-wrapper blog-widget-recent " >
+		<div class="title-page">
+			<h2 class="subtitle"> <?php echo __('Related Posts') ?></h2>
+		</div>
+        <div id="blogslide-related" class="post-list clearfix post-list-slide  row">
+            <?php foreach ($_postCollection as $_post) { ?>
+                <?php
+                $_postUrl = $_post->getPostUrl();
+                $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+            ?>
+            <div class="post-item post-holder-<?php echo $_post->getId() ?> "> 
+					<?php if ($featuredImage = $_post->getFeaturedImage()) { ?>
+					<div class="post-image">
+					   <a href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+							<img class="img-responsive" src="<?php echo $featuredImage ?>" alt="<?php echo $_postName ?>" />
+						</a>
+						<div class="post-date">
+							<?php // echo $_post->getPublishDate('j, n, Y') ?>
+							<span class="date-home-day"><?php echo $_post->getPublishDate('j') ?></span>
+							<span class="date-home-month"><?php echo $_post->getPublishDate('M') ?></span>
+						</div>
+					</div>
+					
+					<?php } ?>
+				
+				<div class="post-description">
+					
+					<?php if ($_categoriesCount = $_post->getCategoriesCount()) { ?>
+                        <div class="item post-categories">
+                            <span class="label"><?php echo __('Categories:') ?></span>
+                            <?php $n = 0; foreach($_post->getParentCategories() as $ct) { $n++; ?>
+                                <a title="<?php echo $block->escapeHtml($ct->getTitle()) ?>" href="<?php echo $ct->getCategoryUrl() ?>"><?php echo $block->escapeHtml($ct->getTitle()) ?></a>
+                                <?php if ($n != $_categoriesCount) { ?>, <?php } ?>
+                            <?php } ?>
+                        </div>
+                        <?php } ?>
+					<div class="postTitle">
+						<h2><a href="<?php echo $_postUrl ?>"><?php echo $_postName; ?></a></h2>
+					</div>
+					<div class="post-content">
+							 <div class="post-text clearfix">
+								<?php echo $block->getShorContent($_post); ?>
+							</div>
+						<a class="post-read-more" href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+						   <?php echo __('Read more') ?>
+						</a>
+					</div>
+					
+				</div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+    </div>
+	
+	<script type="text/javascript">
+	require([
+		'jquery',
+		'slick'
+	], function ($) {	
+	
+		$("#blogslide-related").slick({
+			slidesToShow: 3,
+			autoplay: false,			
+			pauseOnHover: false,		
+			dots: false,
+			arrows: true,
+			rows: 1,
+			infinite: false,
+						slidesToScroll: 1,
+			responsive: [
+				{
+				  breakpoint: 1200,
+				  settings: {
+					slidesToShow: 3				  
+					}
+				},
+				{
+				  breakpoint: 992,
+				  settings: {
+					slidesToShow: 3				  
+					}
+				},
+				{
+				  breakpoint: 768,
+				  settings: {
+					slidesToShow: 3				 
+					}
+				},
+				{
+				  breakpoint: 640,
+				  settings: {
+					slidesToShow: 2				 
+					}
+				},
+				{
+				  breakpoint: 480,
+				  settings: {
+					slidesToShow: 1				  
+					}
+				},
+				{
+				  breakpoint: 360,
+				  settings: {
+					slidesToShow: 1				 
+					}
+				}
+			]
+		});
+	});
+    
+</script>
+	
+    <?php } ?>
+<?php } ?>

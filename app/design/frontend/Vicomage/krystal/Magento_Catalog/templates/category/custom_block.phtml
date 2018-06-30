@@ -1,0 +1,11 @@
+<?php
+$vico_helper = $this->helper('Vicomage\General\Helper\Data');
+$categoryView = $vico_helper->getConfig('vicomage_general_config/category');
+$block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+if ($block) {
+    $block->setBlockId($categoryView['side_custom_block']);
+}
+if ($block) {
+    echo $block->toHtml();
+}
+?>

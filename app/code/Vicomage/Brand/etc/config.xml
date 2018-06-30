@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+	    <shopbrand>
+            <general>
+                <enabled>1</enabled>
+                <title>Brands</title>
+                <attributeCode>manufacturer</attributeCode>
+                <link>1</link>
+                <slide>1</slide>
+                <vertical>false</vertical>
+                <infinite>true</infinite>
+                <autoplay>true</autoplay>
+                <arrows>1</arrows>
+                <dots>false</dots>
+                <rows>1</rows>
+                <speed>300</speed>
+                <autoplaySpeed>3000</autoplaySpeed>
+                <padding>15</padding>
+                <mobile>1</mobile>
+                <portrait>2</portrait>
+                <landscape>3</landscape>
+                <tablet>4</tablet>
+                <notebook>5</notebook>
+                <desktop>5</desktop>
+                <visible>6</visible>
+            </general>
+	    </shopbrand>
+	</default>
+</config>

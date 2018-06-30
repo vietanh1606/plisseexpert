@@ -1,0 +1,163 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .pages {
+         
+		.label {
+			border: 0 none;
+			clip: rect(0px, 0px, 0px, 0px);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+		}
+		.items {
+			display: inline-block;
+			font-size: 0;
+			font-weight: 400;
+			letter-spacing: 0;
+			line-height: 0;
+			list-style: outside none none;
+			margin: 0;
+			padding: 0;
+			white-space: nowrap;
+		}
+		.item {
+			display: inline-block;
+			font-size: 13px;
+			letter-spacing: normal;
+			line-height: 30px;
+			vertical-align: middle;
+			margin: 0 10px 0 0;
+			.label {
+				border: 0 none;
+				clip: rect(0px, 0px, 0px, 0px);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 1px;
+			}
+		}
+		strong.page {
+			background: @theme-color none repeat scroll 0 0;
+			border: 1px solid @theme-color;
+			border-radius: 3px;
+			color: #ffffff;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 400;
+			letter-spacing: normal;
+			line-height: 40px;
+			padding: 0 5px;
+			width: 40px;
+		}
+		a.page {
+			border: 1px solid #dddddd;
+			border-radius: 3px;
+			color: #333333;
+			display: inline-block;
+			padding: 0 5px;
+			text-decoration: none;
+			width: 40px;
+			line-height: 40px;
+			&:hover {
+				background: @theme-color none repeat scroll 0 0;
+				border-color: @theme-color;
+				color: #ffffff;
+				text-decoration: none;
+			}
+		}
+		
+        .action {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+			border: 1px solid #dddddd;
+			color: #333333;
+			display: block;
+			line-height: 40px;
+			padding: 0 15px;
+			width: auto;
+			border-radius: 3px;
+			font-size: 14px;
+			&:hover {
+				background: @theme-color none repeat scroll 0 0;
+				border-color: @theme-color;
+				color: #ffffff;
+				text-decoration: none;
+			}
+            &.previous {
+                margin-right: 0;
+				.label {
+					border: 0 none;
+					clip: rect(0px, 0px, 0px, 0px);
+					height: 1px;
+					margin: -1px;
+					overflow: hidden;
+					padding: 0;
+					position: absolute;
+					width: 1px;
+				}
+				&:hover::before {
+					color: #ffffff;
+				}
+            }
+
+            &.next {
+                margin-left: 0;
+				.label {
+					border: 0 none;
+					clip: rect(0px, 0px, 0px, 0px);
+					height: 1px;
+					margin: -1px;
+					overflow: hidden;
+					padding: 0;
+					position: absolute;
+					width: 1px;
+				}
+				&:hover::before {
+					color: #ffffff;
+				}
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .pages {
+        & &-items {
+            display: block;
+            padding: 2px 40px 0;
+            position: relative;
+            white-space: normal;
+            z-index: 1;
+        }
+
+        &-item-previous {
+            left: 0;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+        }
+
+        &-item-next {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+    }
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <vicomage_general_config>
+            <general>
+                <boxed>1</boxed>
+                <boxed_bg_img>1</boxed_bg_img>
+                <boxed_custom_style>1</boxed_custom_style>
+                <layout>1</layout>
+            </general>
+            <header>
+                <header_type>1</header_type>
+                <sticky_header>1</sticky_header>
+                <currency_short>1</currency_short>
+                <language_flag>1</language_flag>
+            </header>
+            <footer>
+                <footer_top>1</footer_top>
+                <footer_top_custom>block_footer_top_home1</footer_top_custom>
+                <footer_middle>1</footer_middle>
+                <footer_middle_custom>block_footer_middle_home1</footer_middle_custom>
+                <footer_middle_2>0</footer_middle_2>
+                <footer_middle_2_custom>block_footer_middle2_home1</footer_middle_2_custom>
+                <footer_bottom>1</footer_bottom>
+                <footer_store_switcher>0</footer_store_switcher>
+                <footer_bottom_custom>block_footer_bottom_home1</footer_bottom_custom>
+            </footer>
+            <category>
+                <alternative_image>1</alternative_image>
+                <aspect_ratio>0</aspect_ratio>
+                <ratio_width>270</ratio_width>
+                <ratio_height>320</ratio_height>
+                <rating_star>1</rating_star>
+                <product_price>1</product_price>
+                <actions>1</actions>
+                <addtocompare>1</addtocompare>
+                <addtowishlist>1</addtowishlist>
+                <side_custom_block>block_featured_sidebar</side_custom_block>
+            </category>
+            <category_grid>
+                <visible>3</visible>
+                <notebook>3</notebook>
+                <tablet>2</tablet>
+                <landscape>2</landscape>
+                <portrait>2</portrait>
+                <mobile>1</mobile>
+                <category_item_padding>15</category_item_padding>
+            </category_grid>
+            <product>
+                <detail_style>1</detail_style>
+                <side_custom_block>block_banner_sidebar</side_custom_block>
+                <prev_next>1</prev_next>
+                <base_image_width>844</base_image_width>
+                <base_image_height>1000</base_image_height>
+                <moreview_image_width>110</moreview_image_width>
+                <moreview_image_height>130</moreview_image_height>
+                <moreview_thumb_style>1</moreview_thumb_style>
+                <image_zoom_heading>1</image_zoom_heading>
+                <use_zoom_image>1</use_zoom_image>
+                <zoom_window_width>350</zoom_window_width>
+                <zoom_window_height>350</zoom_window_height>
+                <zoom_window_position>1</zoom_window_position>
+                <zoom_easing>0</zoom_easing>
+                <zoom_window_facein_speed>600</zoom_window_facein_speed>
+                <zoom_window_faceout_speed>600</zoom_window_faceout_speed>
+                <custom_tabs_heading>1</custom_tabs_heading>
+                <tab_style>1</tab_style>
+                <custom_cms_tabs></custom_cms_tabs>
+                <custom_attr_tabs></custom_attr_tabs>
+                <show_related>1</show_related>
+                <related_limit>7</related_limit>
+                <related_item_visible>4</related_item_visible>
+                <related_item_notebook>3</related_item_notebook>
+                <related_item_tablet>3</related_item_tablet>
+                <related_item_landscape>2</related_item_landscape>
+                <related_item_portrait>2</related_item_portrait>
+                <related_item_mobile>1</related_item_mobile>
+                <show_upsell>1</show_upsell>
+                <upsell_limit>7</upsell_limit>
+                <upsell_item_visible>4</upsell_item_visible>
+                <upsell_item_notebook>3</upsell_item_notebook>
+                <upsell_item_tablet>2</upsell_item_tablet>
+                <upsell_item_landscape>2</upsell_item_landscape>
+                <upsell_item_portrait>2</upsell_item_portrait>
+                <upsell_item_mobile>1</upsell_item_mobile>
+            </product>
+            <product_label>
+                <new_label>1</new_label>
+                <new_label_text>New</new_label_text>
+                <sale_label>1</sale_label>
+                <sale_label_percent>1</sale_label_percent>
+                <sale_label_text>Sale</sale_label_text>
+            </product_label>
+            <newsletter>
+                <enable>1</enable>
+                <delay>1000</delay>
+                <width>830px</width>
+                <height>485px</height>
+            </newsletter>
+            <contacts>
+                <google_map_heading>1</google_map_heading>
+                <enable>1</enable>
+                <mapiframe>1</mapiframe>
+                <mapiframe_content><![CDATA[<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14900.428522749313!2d105.81158991860933!3d20.988342326322403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8cdf11145b%3A0x2f7150555d1086b4!2zS2jGsMahbmcgxJDDrG5oLCBUaGFuaCBYdcOibiwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1488387737032" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>]]></mapiframe_content>
+                <api_key>AIzaSyCENRBvDi7gGPe1GH_s_s4j7Z-QY5V7t9c</api_key>
+                <full_width>0</full_width>
+                <address>Vigo Store</address>
+                <latitude>-34.398</latitude>
+                <longitude>150.884</longitude>
+                <zoom>18</zoom>
+                <infoblock><![CDATA[<div class="contact-box row">
+	<div class="contact-info-item col-sm-4">
+        <h3 class="title"><i class="fa fa-phone"></i> Hotline</h3>
+        <p class="description">(+100) 123 456 7890 - (+100) 123 456 7899</p>
+    </div>
+	<div class="contact-info-item col-sm-4">
+        <h3 class="title"><i class="fa fa-envelope-o"></i> Email us</h3>
+        <a href="mailto:support@vicomage.com">
+           <span class="description">support@vicomage.com</span>
+       </a>
+    </div>
+	<div class="contact-info-item col-sm-4">
+        <h3 class="title"><i class="fa fa-map-marker"></i> Store location</h3>
+        <p class="description">608 Fifth Avenue, New York, NY 10020</p>
+    </div>
+</div>
+]]></infoblock>
+            </contacts>
+            <font>
+                <custom>0</custom>
+                <font_size>1</font_size>
+            </font>
+            <custom_settings>
+                <custom_style>0</custom_style>
+                <custom_style_css></custom_style_css>
+            </custom_settings>
+        </vicomage_general_config>
+    </default>
+</config>

@@ -1,0 +1,402 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+?>
+
+<?php
+	$vico_helper = $this->helper('Vicomage\General\Helper\Data');
+    $product_config = $vico_helper->getConfig('vicomage_general_config/product');
+	$limit_product_related = $product_config['related_limit'] ?: 6;
+	$item_product_related = $product_config['related_item_visible'];
+	$limit_product_upsell = $product_config['upsell_limit'] ?: 6;
+	$item_product_upsell = $product_config['upsell_item_visible'];
+	
+	$exist = false;
+switch ($type = $block->getType()) {
+	
+    case 'related-rule':
+		if( $product_config['show_related'] ){
+			if ($exist = $block->hasItems()) {
+				$type = 'related';
+				$class = $type;
+
+				$image = 'related_products_list';
+				$title = __('Related Products');
+				$items = $block->getAllItems();
+				$limit = $block->getPositionLimit();
+				$limit_product = $limit_product_related;
+				$item_slide = $item_product_related;
+				$item_slide_notebook = $product_config['related_item_notebook'];
+				$item_slide_tablet = $product_config['related_item_tablet'];
+				$item_slide_landscape = $product_config['related_item_landscape'];
+				$item_slide_portrait = $product_config['related_item_portrait'];
+				$item_slide_mobile = $product_config['related_item_mobile'];
+				$shuffle = (int) $block->isShuffled();
+				$canItemsAddToCart = $block->canItemsAddToCart();
+
+				$showWishlist = false;
+				$showCompare = false;
+				$showCart = true;
+				$templateType = null;
+				$description = false;
+			}
+        }
+    break;
+
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related $block */
+		if( $product_config['show_related'] ){
+			if ($exist = $block->getItems()->getSize()) {
+				$type = 'related';
+				$class = $type;
+
+				$image = 'related_products_list';
+				$title = __('Related Products');
+				$items = $block->getItems();
+				$limit = 0;
+				$limit_product = $limit_product_related;
+				$item_slide = $item_product_related;
+				$item_slide_notebook = $product_config['related_item_notebook'];
+				$item_slide_tablet = $product_config['related_item_tablet'];
+				$item_slide_landscape = $product_config['related_item_landscape'];
+				$item_slide_portrait = $product_config['related_item_portrait'];
+				$item_slide_mobile = $product_config['related_item_mobile'];
+				$shuffle = 0;
+				$canItemsAddToCart = $block->canItemsAddToCart();
+
+				$showWishlist = false;
+				$showCompare = false;
+				$showCart = true;
+				$templateType = null;
+				$description = false;
+			}
+        }
+    break;
+	
+
+    case 'upsell-rule':
+		if( $product_config['show_upsell'] ){
+			if ($exist = $block->hasItems()) {
+				$type = 'upsell';
+				$class = $type;
+
+				$image = 'upsell_products_list';
+				$title = __('Upsell Products');
+				$items = $block->getAllItems();
+				$limit = $block->getPositionLimit();
+				$item_slide = $item_product_upsell;
+				$item_slide_notebook = $product_config['upsell_item_notebook'];
+				$item_slide_tablet = $product_config['upsell_item_tablet'];
+				$item_slide_landscape = $product_config['upsell_item_landscape'];
+				$item_slide_portrait = $product_config['upsell_item_portrait'];
+				$item_slide_mobile = $product_config['upsell_item_mobile'];
+				$limit_product = $limit_product_upsell;
+				$shuffle = (int) $block->isShuffled();
+
+				$showWishlist = false;
+				$showCompare = false;
+				$showCart = false;
+				$templateType = null;
+				$description = false;
+				$canItemsAddToCart = false;
+			}
+        }
+    break;
+
+    case 'upsell':
+		if( $product_config['show_upsell'] ){
+        /** @var \Magento\Catalog\Block\Product\ProductList\Upsell $block */
+			if ($exist = count($block->getItemCollection()->getItems())) {
+				$type = 'upsell';
+				$class = $type;
+
+				$image = 'upsell_products_list';
+				$title = __('Upsell Products');
+				$items = $block->getItemCollection()->getItems();
+				$limit = $block->getItemLimit('upsell');
+				$item_slide = $item_product_upsell;
+				$item_slide_notebook = $product_config['upsell_item_notebook'];
+				$item_slide_tablet = $product_config['upsell_item_tablet'];
+				$item_slide_landscape = $product_config['upsell_item_landscape'];
+				$item_slide_portrait = $product_config['upsell_item_portrait'];
+				$item_slide_mobile = $product_config['upsell_item_mobile'];
+				$limit_product = $limit_product_upsell;
+				$shuffle = 0;
+
+				$showWishlist = false;
+				$showCompare = false;
+				$showCart = true;
+				$templateType = null;
+				$description = false;
+				$canItemsAddToCart = false;
+			}
+        }
+    break;
+
+    case 'crosssell-rule':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->hasItems()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItemCollection();
+			$limit_product = 8;
+			$item_slide = 4;
+			$item_slide_notebook = 4;
+			$item_slide_tablet = 3;
+			$item_slide_landscape = 3;
+			$item_slide_portrait = 2;
+			$item_slide_mobile = 1;
+            $showWishlist = false;
+            $showCompare = false;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    case 'crosssell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->getItemCount()) {
+            $type = 'crosssell';
+            $class = $type;
+			$limit_product = 8;
+			$item_slide = 4;
+			$item_slide_notebook = 4;
+			$item_slide_tablet = 3;
+			$item_slide_landscape = 3;
+			$item_slide_portrait = 2;
+			$item_slide_mobile = 1;
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItems();
+
+            $showWishlist = false;
+            $showCompare = false;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    case 'new':
+        if ($exist = $block->getProductCollection()) {
+            $type = 'new';
+            $mode = 'grid';
+            $type = $type . ' ' . $mode;
+			$limit_product = 8;
+			$item_slide = 4;
+			$item_slide_notebook = 4;
+			$item_slide_tablet = 3;
+			$item_slide_landscape = 3;
+			$item_slide_portrait = 2;
+			$item_slide_mobile = 1;
+            $class = 'widget' . ' ' . $type;
+
+            $image = 'new_products_content_widget_grid';
+            $title = __('New Products');
+            $items = $exist;
+
+            $showWishlist = false;
+            $showCompare = false;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = ($mode == 'list') ? true : false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    default:
+        $exist = false;
+}
+?>
+
+<?php if ($exist):?>
+
+    <?php if ($type == 'related' || $type == 'upsell'): ?>
+        <?php if ($type == 'related'): ?>
+            <div class="block <?php /* @escapeNotVerified */ echo $class; ?>" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="<?php /* @escapeNotVerified */ echo $limit; ?>" data-shuffle="<?php /* @escapeNotVerified */ echo $shuffle; ?>">
+        <?php else: ?>
+            <div class="block <?php /* @escapeNotVerified */ echo $class; ?>" data-mage-init='{"upsellProducts":{}}' data-limit="<?php /* @escapeNotVerified */ echo $limit; ?>" data-shuffle="<?php /* @escapeNotVerified */ echo $shuffle; ?>">
+        <?php endif; ?>
+    <?php else: ?>
+        <div class="block <?php /* @escapeNotVerified */ echo $class; ?>">
+    <?php endif; ?>
+    <div class="title-page">
+        <h2 id="block-<?php /* @escapeNotVerified */ echo $class?>-heading" class="subtitle"><?php /* @escapeNotVerified */ echo $title; ?></h2>
+    </div>
+    <div class="block-content content product-home" aria-labelledby="block-<?php /* @escapeNotVerified */ echo $class?>-heading">
+        <?php if ($type == 'related' && $canItemsAddToCart): ?>
+        <div class="block-actions">
+            <?php /* @escapeNotVerified */ echo __('Check items to add to the cart or') ?>
+            <button type="button" class="action select" role="select-all"><span><?php /* @escapeNotVerified */ echo __('select all') ?></span></button>
+        </div>
+        <?php endif; ?>
+        <div class="products wrapper products-custom grid products-grid products-grid-style2 products-<?php /* @escapeNotVerified */ echo $type; ?>">
+            <div class="products list items product-items" id="productslide<?php echo $type ?>">
+                <?php $iterator = 1; ?>
+                <?php $i=0; foreach ($items as $_item): $i++; ?>
+                <?php $available = ''; ?>
+                <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
+                    <?php if (!$_item->getRequiredOptions()): ?>
+                        <?php $available = 'related-available'; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if ($type == 'related' || $type == 'upsell'): ?>
+                    <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<div class="item product product-item" style="display: none;">' : '</div><div class="item product product-item" style="display: none;">' ?>
+                <?php else: ?>
+                    <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<div class="item product product-item">' : '</div><div class="item product product-item">' ?>
+                <?php endif; ?>
+                <div class="product-item-info <?php /* @escapeNotVerified */ echo $available; ?>">
+                    <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
+					<div class="product-img-hover">
+						<a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
+							<?php echo $block->getImage($_item, $image)->toHtml(); ?>
+						</a>
+						<?php // Product Label ?>
+						<?php echo $vico_helper->getProductLabel($_item) ?>
+						<a class="vicomage-quickview btn-quickview" data-quickview-url="<?php echo $this->getUrl('vicomage_quickview/catalog_product/view/'); ?>id/<?php echo $_item->getId(); ?>" href="javascript:void(0);"><span><?php /* @escapeNotVerified */ echo __('Quick View') ?></span></a>
+						
+					</div>
+                   
+                    <div class="product details product-item-details">
+                        <strong class="product name product-item-name"><a class="product-item-link" title="<?php echo $block->escapeHtml($_item->getName()) ?>" href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>">
+                            <?php echo $block->escapeHtml($_item->getName()) ?></a>
+                        </strong>
+
+                        <?php /* @escapeNotVerified */ echo $block->getProductPrice($_item); ?>
+
+                            <?php if ($templateType): ?>
+                                <?php echo $block->getReviewsSummaryHtml($_item, $templateType) ?>
+                            <?php endif; ?>
+							
+							
+							<div class="product-item-inner group-btn-hover">
+								<div class="product actions product-item-actions">
+									<?php if ($showCart): ?>
+									<div class="actions-primary">
+										<?php if ($_item->isSaleable()): ?>
+											<?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
+												<button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+													<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+												</button>
+											<?php else: ?>
+												<?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+												$postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()])
+												?>
+												<button class="action tocart primary"
+														data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
+														type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+													<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+												</button>
+											<?php endif; ?>
+										<?php else: ?>
+											<?php if ($_item->getIsSalable()): ?>
+												<div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+											<?php else: ?>
+												<div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+											<?php endif; ?>
+										<?php endif; ?>
+									</div>
+									<?php endif; ?>
+									 <?php if ($showWishlist || $showCompare): ?>
+										<div class="secondary-addto-links actions-secondary" data-role="add-to-links">
+											<?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow() && $showWishlist): ?>
+												<a href="#" data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_item); ?>'  class="action towishlist" data-action="add-to-wishlist" title="<?php /* @escapeNotVerified */ echo __('Add to Wish List') ?>">
+													<span></span>
+												</a>
+											<?php endif; ?>
+											<?php if ($block->getAddToCompareUrl() && $showCompare): ?>
+												<?php
+												$compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+												?>
+												<a href="#" class="action tocompare"
+												   data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_item);?>'
+												   data-role="add-to-links"
+												   title="<?php /* @escapeNotVerified */ echo __('Add to Compare'); ?>">
+													<span></span>
+												</a>
+											<?php endif; ?>
+											
+										</div>
+									<?php endif; ?>
+								</div>
+							</div>
+							
+							
+                            <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
+                                <?php if (!$_item->getRequiredOptions()): ?>
+                                    <div class="field choice related">
+                                        <input type="checkbox" class="checkbox related" id="related-checkbox<?php /* @escapeNotVerified */ echo $_item->getId() ?>" name="related_products[]" value="<?php /* @escapeNotVerified */ echo $_item->getId() ?>" />
+                                        <label class="label" for="related-checkbox<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span></label>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+
+                            
+                        </div>
+                    </div>
+                    <?php echo($iterator == count($items)+1) ? '</div>' : '' ?>
+					<?php if ($limit_product): ?>
+						<?php if($i == $limit_product) break;?>
+					<?php endif; ?>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+require([
+    'jquery',
+	'slick'
+], function ($) {	
+	$("#productslide<?php echo $type ?>").slick({
+			dots: false,
+			arrows: true,
+			infinite: false,
+			speed: 300,
+			slidesToShow: <?php echo $item_slide ?>,
+			slidesToScroll: 1,
+			responsive: [
+				{
+				  breakpoint: 1200,
+				  settings: {
+					slidesToShow: <?php echo $item_slide ?>	}
+				},
+				{
+				  breakpoint: 992,
+				  settings: {slidesToShow: <?php echo $item_slide_notebook ?>}
+				},
+				{
+				  breakpoint: 768,
+				  settings: {slidesToShow: <?php echo $item_slide_tablet ?>}
+				},
+				{
+				  breakpoint: 640,
+				  settings: {slidesToShow: <?php echo $item_slide_landscape ?>}
+				},
+				{
+				  breakpoint: 480,
+				  settings: {slidesToShow: <?php echo $item_slide_portrait ?>}
+				},
+				{
+				  breakpoint: 360,
+				  settings: {slidesToShow: <?php echo $item_slide_mobile ?>}
+				}
+			]
+        });
+});
+
+</script>
+
+<?php endif;?>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <slider>
+    <item>
+      <name><![CDATA[Home4 Slide]]></name>
+      <identity><![CDATA[home4-slide]]></identity>
+      <slider_params><![CDATA[{"1":{"position":"1","file":"\/h\/o\/home4-slide2_1.jpg","image":"\/h\/o\/home4-slide2_1.jpg","media_type":"image","value_id":"1","label":"slide1","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home4-slide2_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-right\">\r\n\t<div class=\"text-slide text-slide2\">\r\n\t\t<h3 class=\"caption1\">\r\n\t\t\t<span class=\"small\">How to work a<\/span>\r\n\t\t\tSectional sofa\r\n\t\t<\/h3>\r\n\t\t<h2 class=\"caption2\"><span class=\"small\">into your space<\/span><\/h2>\r\n\t\t<h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n\t<\/div>\r\n<\/div>","disabled":"0","removed":""},"2":{"position":"2","file":"\/h\/o\/home4-slide1_2.jpg","image":"","media_type":"image","value_id":"2","label":"slide2","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home4-slide1_2.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-right\">\r\n\t<div class=\"text-slide text-slide1\">\r\n\t\t<h3 class=\"caption1\">\r\n\t\t\t<span class=\"gray\">Great Range of<\/span> Exclusive <br\/>\r\n\t\t\tFurniture <span class=\"gray\">Chair.<\/span>\r\n\t\t<\/h3>\r\n\t\t<h2 class=\"caption2\">Exclusive furniture packages to suit every need. <br\/>\r\nstart freom as little as <span class=\"price\">$300.00<\/span><\/h2>\r\n\t\t<h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n\t<\/div>\r\n<\/div>","disabled":"0","removed":""},"3":{"position":"3","file":"\/h\/o\/home4-slide3_1.jpg","image":"","media_type":"image","value_id":"3","label":"slide3","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home4-slide3_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-right\">\r\n\t<div class=\"text-slide text-slide3\">\r\n\t\t<h3 class=\"caption1\">\r\n\t\t\t<span class=\"small\">Great Range<\/span>\r\n\t\t\tOf Exclusive<br\/>\r\n\t\t\tFurniture Packages\r\n\t\t<\/h3>\r\n\t\t<h2 class=\"caption2\">Exclusive furniture packages <br\/>to suit every need.<\/h2>\r\n\t\t<h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n\t<\/div>\r\n<\/div>","disabled":"0","removed":""}}]]></slider_params>
+      <width><![CDATA[1920]]></width>
+      <height><![CDATA[470]]></height>
+      <number><![CDATA[3]]></number>
+      <status><![CDATA[1]]></status>
+      <navigation><![CDATA[1]]></navigation>
+      <pagercontrol><![CDATA[1]]></pagercontrol>
+      <lazyload><![CDATA[0]]></lazyload>
+      <speed><![CDATA[]]></speed>
+      <auto_play><![CDATA[0]]></auto_play>
+      <autoplay_speed><![CDATA[]]></autoplay_speed>
+      <stop_on_hover><![CDATA[0]]></stop_on_hover>
+      <loop><![CDATA[0]]></loop>
+    </item>
+  </slider>
+</root>

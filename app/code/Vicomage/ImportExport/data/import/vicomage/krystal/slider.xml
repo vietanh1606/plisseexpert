@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <slider>
+    <item>
+      <name><![CDATA[Home1 Slide]]></name>
+      <identity><![CDATA[home1-slide]]></identity>
+      <slider_params><![CDATA[{"1":{"position":"1","file":"\/s\/l\/slide-2.jpg","image":"\/s\/l\/slide-2.jpg","media_type":"image","value_id":"1","label":"slide1","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/s\/l\/slide-2.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-left\">\r\n\t<div class=\"text-slide text-slide2\">\r\n\t\t<h3 class=\"caption1\">\r\n\t\t\tThe Worlds<br\/>\r\n\t\t\tThinnest Laptop\r\n\t\t<\/h3>\r\n\t\t<h2 class=\"caption2\">Artisan materials and striking craftsmanship<br\/>\r\ncreate an experience unlike anything else.<\/h2>\r\n\t\t<h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n\t<\/div>\r\n<\/div>","disabled":"0","removed":""},"2":{"position":"2","file":"\/s\/l\/slide-1_1.jpg","image":"","media_type":"image","value_id":"2","label":"slide2","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/s\/l\/slide-1_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-right\">\r\n\t<div class=\"text-slide text-slide2\">\r\n\t\t<h3 class=\"caption1\">\r\n\t\t\t100% <br\/>\r\n\t\t\tTough Stain Removal<br\/>\r\n\t\t\tIn Machines\r\n\t\t<\/h3>\r\n\t\t<h2 class=\"caption2\">Washing Tachnology User 6 different wash motions, designed <br\/>\r\n\t\t\tto best care for your clother, just like hand wash.<\/h2>\r\n\t\t<h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n\t<\/div>\r\n<\/div>","disabled":"0","removed":""},"3":{"position":"3","file":"\/s\/l\/slide-3_1.jpg","image":"","media_type":"image","value_id":"3","label":"slide3","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/s\/l\/slide-3_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-left\">\r\n\t<div class=\"text-slide text-slide2\">\r\n\t\t<h3 class=\"caption1\">\r\n\t\t\tAmerica SUHD TVs<br\/>\r\n\t\t\tWith Smart UV2A Technology\r\n\t\t<\/h3>\r\n\t\t<h2 class=\"caption2\">Big screen in incredibly slim designs that in your eyes.<\/h2>\r\n\t\t<h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n\t<\/div>\r\n<\/div>","disabled":"0","removed":""}}]]></slider_params>
+      <width><![CDATA[1920]]></width>
+      <height><![CDATA[548]]></height>
+      <number><![CDATA[3]]></number>
+      <status><![CDATA[1]]></status>
+      <navigation><![CDATA[1]]></navigation>
+      <pagercontrol><![CDATA[1]]></pagercontrol>
+      <lazyload><![CDATA[1]]></lazyload>
+      <speed><![CDATA[]]></speed>
+      <auto_play><![CDATA[0]]></auto_play>
+      <autoplay_speed><![CDATA[]]></autoplay_speed>
+      <stop_on_hover><![CDATA[0]]></stop_on_hover>
+      <loop><![CDATA[0]]></loop>
+    </item>
+  </slider>
+</root>

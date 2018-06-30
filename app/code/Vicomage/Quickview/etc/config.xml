@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <vicomage_quickview>
+            <general>
+                <enable_product_listing>1</enable_product_listing>
+                <remove_product_image>1</remove_product_image>
+                <remove_product_image_thumb>1</remove_product_image_thumb>
+                <remove_short_description>1</remove_short_description>
+                <remove_qty_selector>1</remove_qty_selector>
+                <enable_goto_product_button>1</enable_goto_product_button>
+                <remove_availability>1</remove_availability>
+                <remove_sku>1</remove_sku>
+                <scroll_to_top>1</scroll_to_top>
+                <enable_shopping_checkout_product_buttons>1</enable_shopping_checkout_product_buttons>
+                <headingzoom>1</headingzoom>
+                <enable_zoom>1</enable_zoom>
+                <zoom_fullscreenzoom>1</zoom_fullscreenzoom>
+                <zoom_top>1</zoom_top>
+                <zoom_left>1</zoom_left>
+                <zoom_width>1</zoom_width>
+                <zoom_height>1</zoom_height>
+                <zoom_eventtype>1</zoom_eventtype>
+                <heading4>1</heading4>
+                <auto_size>1</auto_size>
+                <popup_width>1</popup_width>
+                <popup_height>1</popup_height>
+                <display_overlay>1</display_overlay>
+                <open_effect>1</open_effect>
+                <close_effect>1</close_effect>
+            </general>
+        </vicomage_quickview>      
+    </default>
+</config>

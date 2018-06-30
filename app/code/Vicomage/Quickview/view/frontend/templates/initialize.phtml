@@ -1,0 +1,10 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Vicomage\Quickview\Block\Initialize */
+?>
+<div class="quickview-config" data='<?php echo $block->getConfigView()?>' data-url='vicomage_quickview/index/updatecart'></div>
+<script>
+    require(['quickview']);
+    window.vicomage_quickview = <?php /* @escapeNotVerified */ echo \Zend_Json::encode($block->getConfig()); ?>;
+</script>

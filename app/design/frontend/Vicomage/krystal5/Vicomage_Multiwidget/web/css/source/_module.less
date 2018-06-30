@@ -1,0 +1,186 @@
+& when (@media-common = true) {
+	.vigoproduct {
+		.title-page {
+			display: inline-block;
+			margin: 0;
+		}
+		.block-title-tabs {
+			float: right;
+			margin-top: 4px;
+		}
+	} 
+	.group-product-tabs{
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		.product-tab{
+			display: inline-block;
+			list-style: outside none none;
+			margin: 0;
+			cursor: pointer;
+			padding: 0 15px;
+			position: relative;
+			color: #666666;
+			.title {
+				font-size: 14px;
+				font-weight: 400;
+				text-transform: capitalize;
+				letter-spacing: 0;
+				position: relative;
+				&::after {
+					border-top: 1px solid;
+					bottom: -13px;
+					content: "";
+					height: 1px;
+					left: 0;
+					position: absolute;
+					right: 0;
+					width: 100%;
+					z-index: 100;
+					display: none;
+				}
+			}
+			&.active, &:hover{
+				color : @theme-color;
+				.title {
+					&::after {
+						display: block;
+					}
+				}
+			}
+			&.active{
+				.title {
+					font-weight: 600;
+				}
+			}
+		}
+		
+	}
+	
+	.content-products{
+		clear: both;
+		.product-type-group {
+			height: 0;
+			opacity: 0;
+			visibility: hidden;
+			display: none;
+			&.active {
+				height: auto;
+				opacity: 1;
+				visibility: visible;
+				display: block;
+			}
+		}
+	} 
+	
+	.vigoproduct-list {
+		text-align: left;
+		.title-page {
+			text-align: left;
+			margin: 10px 0;
+			.subtitle {
+				display: block;
+				font-size: 18px;
+				letter-spacing: 0;
+				line-height: 1;
+				text-transform: uppercase;
+				&::before {
+					left: 0;
+					margin-left: 0;
+				}
+			}
+		}
+		.block-title-tabs {
+			display: none;
+		}
+		.products-list{
+			.products {
+				margin: 10px 0 40px;
+			}
+			.product-item {
+				margin: 0;
+				padding: 0;
+				&.slick-current {
+					border-right-color: rgba(0, 0, 0, 0);
+				}	
+			}
+			.product-item-info {
+				border: 0 none;
+				margin-bottom: 0;
+				padding: 15px;
+				.product-img-hover{
+					margin-bottom:0;
+					width: 40%;
+				}
+			}
+			.product-item-details {
+				padding-left: 10px;
+				width: 60%;
+				.product-item-name {
+					font-size: 13px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					a {
+						font-weight: 500;
+					}
+				}
+				.price {
+					font-size: 14px;
+				}
+				.product-item-inner {
+					padding-top: 5px;
+				}
+				.product-item-actions .tocart {
+					background: #ffffff none repeat scroll 0 0;
+					border: 2px solid #dddddd;
+					color: #333333;
+					font-size: 13px;
+					font-weight: 600;
+					height: 34px;
+					line-height: 30px;
+					padding: 0 25px;
+					width: auto;
+					&:hover{
+						background:@theme-color;
+						border-color:@theme-color;
+						color:#fff;
+					}
+				}
+			}
+		} 
+	}
+	.vicommage-count-down{
+		margin-bottom: 15px;
+		.timer-box {
+			display: inline-block;
+			margin-right: 10px;
+			text-align: center;
+			.day,
+			.hour,
+			.min,
+			.sec {
+				background-color: #eeeeee;
+				border-radius: 50%;
+				color: #222222;
+				display: inline-block;
+				font-size: 19px;
+				font-weight: bold;
+				height: 40px;
+				line-height: 40px;
+				width: 40px;
+				margin-bottom: 5px;
+				text-align: center;
+			}
+			span{
+				color: #aaaaaa;
+				display: block;
+				font-size: 10px;
+				text-transform: uppercase;
+			}
+		}	
+	}
+	
+	
+}
+

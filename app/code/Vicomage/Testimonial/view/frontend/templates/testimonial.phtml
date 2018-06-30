@@ -1,0 +1,46 @@
+<?php
+if(!$this->getEnabled()) return;
+$selector = 'vicomage-content-'.rand(0,999999999).date('YmdHis');
+$testimonials = $this->getTestimonials();
+$config = $block->getData();
+if(!count($testimonials)) return;
+
+
+?>
+<?php if (!$config['slide']): ?>
+	<style type="text/css"><?php echo $this->getStyle($selector); ?></style>
+<?php endif; ?>
+<div class="testimonial-wrapper">
+<div class="<?php echo $selector ?> <?php if (!$config['slide']): ?> testimonial-list-grid<?php endif; ?>">
+        <?php $i=0; foreach ($testimonials as $testimonial) :?>
+			<div class="item item-testimonial">
+				<?php echo $this->getTitle() ? '<h2 class="testimonial-title">' . '<span>' . $this->getTitle() . '</span>' . '</h2>' : '' ?>
+				<div class="customer-avatar">
+					<img class="avatar img-responsive" src="<?php echo $block->getAvatarUrl($testimonial)?>" alt="<?php echo __($testimonial->getName()) ?>" title="<?php echo __($testimonial->getName()) ?>" />
+				</div>
+				<div class="testimonial-text">
+					<?php echo $testimonial->getContent(); ?>
+				</div>
+				<div class="testimonial-name">
+					<h3><?php echo $testimonial->getName(); ?></h3>
+					<p><?php echo $testimonial->getCompany(); ?></p>
+				</div>
+			</div>
+        <?php endforeach ?>
+</div>
+</div>
+<?php if ($config['slide']): ?>
+	<script type="text/javascript">
+		require([
+			'jquery',
+            'vicomagecore'
+		], function($){
+			(function($) {
+				var element = $('.<?php echo $selector?>');
+				var sliderConfig = '<?php echo $this->getFrontendCfg();?>';
+                $.fn.vicomageSlider(element,sliderConfig);
+			})(jQuery);
+		});
+	</script>
+
+<?php endif ?>

@@ -1,0 +1,119 @@
+& when (@media-common = true) {
+	.vigoproduct .title-page {
+		margin-bottom: 30px;
+	}
+	.group-product-tabs{
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		.product-tab{
+			display: inline-block;
+			list-style: outside none none;
+			margin: 0;
+			cursor: pointer;
+			padding: 0 20px;
+			position: relative;
+			&::after {
+				background: #dddddd none repeat scroll 0 0;
+				content: "";
+				height: 15px;
+				left: -1px;
+				margin-top: -7px;
+				position: absolute;
+				top: 50%;
+				width: 1px;
+			}
+			&:first-child::after {
+				display: none;
+			}
+			.title {
+				font-size: 18px;
+				font-weight: 400;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			&.active, &:hover{
+				color : #949abb;
+			}
+			
+		}
+		
+	}
+	
+	.content-products{
+		.product-type-group {
+			height: 0;
+			opacity: 0;
+			visibility: hidden;
+			display: block;
+			overflow: hidden;
+			&.active {
+				height: auto;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	} 
+	
+	.vigoproduct-list {
+		text-align: left;
+		.title-page {
+			text-align: left;
+			margin-top: 10px;
+			.subtitle {
+				font-size: 18px;
+				letter-spacing: 1px;
+				&::before {
+					left: 0;
+					margin-left: 0;
+				}
+			}
+		}
+		.block-title-tabs {
+			display: none;
+		}
+		.products-list{
+			.products {
+				margin: 10px 0 40px;
+			}
+			.product-item-info {
+				border-bottom: 0 none;
+				margin-bottom: 15px;
+				padding-bottom: 5px;
+			}
+			.product-item-details {
+				padding-left: 20px;
+				.product-item-name {
+					font-size: 13px;
+					a {
+						font-weight: 300;
+					}
+				}
+				.price {
+					font-size: 14px;
+				}
+				.product-item-inner {
+					padding-top: 5px;
+				}
+				.product-item-actions .tocart {
+					background: #ffffff none repeat scroll 0 0;
+					border: 1px solid #dddddd;
+					color: #333333;
+					font-size: 12px;
+					font-weight: 300;
+					height: 36px;
+					letter-spacing: 1px;
+					padding: 0 12px;
+					&:hover{
+						background:#949abb;
+						border-color:#949abb;
+						color:#fff;
+					}
+				}
+			}
+		} 
+	}
+	
+	
+}
+

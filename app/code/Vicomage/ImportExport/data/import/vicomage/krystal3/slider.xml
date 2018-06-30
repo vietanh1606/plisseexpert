@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <slider>
+    <item>
+      <name><![CDATA[Home3 Slide]]></name>
+      <identity><![CDATA[home3-slide]]></identity>
+      <slider_params><![CDATA[{"1":{"position":"1","file":"\/h\/o\/home3-slide2.jpg","image":"\/h\/o\/home3-slide2.jpg","media_type":"image","value_id":"1","label":"slide1","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home3-slide2.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-right\">\r\n    <div class=\"text-slide text-slide2\">\r\n        <h3 class=\"caption1\">\r\n            Back To the 50s\r\n        <\/h3>\r\n        <h2 class=\"caption2\">On Online Purchases of Small Appliances<\/h2>\r\n        <h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n    <\/div>\r\n<\/div>","disabled":"0","removed":""},"2":{"position":"2","file":"\/h\/o\/home3-slide1_1.jpg","image":"","media_type":"image","value_id":"2","label":"slide2","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home3-slide1_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-left\">\r\n    <div class=\"text-slide text-slide1\">\r\n        <h3 class=\"caption1\">\r\n            World Leader in Home <br\/>& Kitchens Appliances\r\n        <\/h3>\r\n        <h2 class=\"caption2\">Introducing Products for a Machine<br\/> \r\nand Healthier Lifestyle.<\/h2>\r\n        <h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n    <\/div>\r\n<\/div>","disabled":"0","removed":""},"3":{"position":"3","file":"\/h\/o\/home3-slide3_1.jpg","image":"","media_type":"image","value_id":"3","label":"slide3","url":"http:\/\/www.vicomagelocal.com\/vicomage\/krystal\/pub\/media\/vicomage\/slider\/h\/o\/home3-slide3_1.jpg","urlcontent":"#","description":"<div class=\"slide-caption slide-caption-right\">\r\n    <div class=\"text-slide text-slide3\">\r\n        <h3 class=\"caption1\">\r\n            KitchenAid Artisan\r\n        <\/h3>\r\n        <h2 class=\"caption2\">Find appliances that consume more<br\/>\r\nmoney than others.<\/h2>\r\n        <h2 class=\"caption3\"><a class=\"btn-shop\" href=\"#\" tabindex=\"0\">Shop Now<\/a><\/h2>\r\n    <\/div>\r\n<\/div>","disabled":"0","removed":""}}]]></slider_params>
+      <width><![CDATA[800]]></width>
+      <height><![CDATA[450]]></height>
+      <number><![CDATA[3]]></number>
+      <status><![CDATA[1]]></status>
+      <navigation><![CDATA[1]]></navigation>
+      <pagercontrol><![CDATA[1]]></pagercontrol>
+      <lazyload><![CDATA[1]]></lazyload>
+      <speed><![CDATA[]]></speed>
+      <auto_play><![CDATA[0]]></auto_play>
+      <autoplay_speed><![CDATA[]]></autoplay_speed>
+      <stop_on_hover><![CDATA[0]]></stop_on_hover>
+      <loop><![CDATA[0]]></loop>
+    </item>
+  </slider>
+</root>

@@ -1,0 +1,109 @@
+<?php
+/**
+ * Blog recent posts widget
+ *
+ * @var $block \Vicomage\Blog\Block\Widget\Recent
+ */
+?>
+
+<?php
+    $_postCollection = $block->getPostCollection();
+?>
+<?php if ($_postCollection->count()) { ?>
+ <?php
+	$data = $block->getData();
+	$blockId = rand() . time();
+    ?>
+	
+	<?php if ($data['view_as'] == 'default'): ?>
+		<?php 
+		$listCfg = array('mobile'=>$data['mobile'], 'portrait'=>$data['portrait'],'landscape'=>$data['landscape'], 'tablet'=>$data['tablet'], 'desktop'=>$data['desktop'], 'visibleItems'=>$data['visible'],);
+		$devices = array(0 =>'mobile', 361 =>'mobile', 480 =>'portrait', 640=>'landscape', 768=>'tablet', 992=>'desktop', 1200=>'visibleItems');
+		$prcents = array(1 => '100%', 2 => '50%', 3 => '33.333333333%', 4 => '25%', 5 => '20%', 6 => '16.666666666%');
+		$classResponsive   = $styles = '';
+		$max = count($devices);
+		$i   = $tmp= 1;
+		foreach ($devices as $key => $value) {
+			$tmpKey = ( $i == 1 || $i == $max) ? $value : current($devices);
+			if($i >1){
+				$styles .= ' @media (min-width: '. $tmp .'px) and (max-width: ' . ($key-1) . 'px) {.post-list-grid .post-item{ padding: 0 15px;float: left;width: '.$prcents[$listCfg[$value]] .'} .post-list-grid .post-item:nth-child(' .$listCfg[$value]. 'n+1){clear: left;}}';
+				next($devices);           
+			}
+			if( $i == $max ) $styles .= ' @media (min-width: ' . $key . 'px) {.post-list-grid .post-item{ padding: 0 15px;float: left;width: '.$prcents[$listCfg[$value]] .'} .post-list-grid .post-item:nth-child(' .$listCfg[$value]. 'n+1){clear: left;}}';
+			$tmp = $key;
+			$i++;
+		}
+		?>
+		<style type="text/css"><?php echo $styles ?></style>
+	<?php endif; ?>
+	
+	
+<div class="latest-blog-home">
+<div class="post-list-wrapper blog-widget-recent " >
+	<?php if ($data['title']) { ?>
+	
+		<div class="title-page">
+			<h2 class="subtitle"><?php echo $data['title'] ?></h2>
+		</div>
+	<?php } ?>
+	
+    <div id="blogslide<?php echo $blockId ?>" class="post-list clearfix  row<?php if ($data['view_as'] == 'default'): ?> post-list-grid<?php endif; ?> <?php if ($data['view_as'] == 'slide'): ?>post-list-slide<?php endif; ?>">
+        <?php foreach ($_postCollection as $_post) {?>
+            <?php
+                $_postUrl = $_post->getPostUrl();
+                $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+            ?>
+            <div class="post-item post-holder-<?php echo $_post->getId() ?> "> 
+				<?php $showimg = $this->getData('show_thumbnail'); ?>
+				<?php if ($showimg==1) { ?>
+					<?php if ($thumbImage = $_post->getThumbnailImg()) { ?>
+					<div class="post-image">
+					   <a href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+							<img class="img-responsive" src="<?php echo $block->getMediaUrl($thumbImage) ?>" alt="<?php echo $_postName ?>" />
+						</a>
+						<div class="post-date">
+							<span class="date-home-day"><?php echo $_post->getPublishDate('j') ?></span>
+							<span class="date-home-month"><?php echo $_post->getPublishDate('M') ?></span>
+						</div>
+					</div>
+					
+					<?php } ?>
+				<?php } ?>
+				
+				<div class="post-description">
+					<div class="postTitle">
+						<h2><a href="<?php echo $_postUrl ?>"><?php echo $_postName; ?></a></h2>
+					</div>
+					<div class="post-content">
+						 <?php if ($_post->getShortContent()) { ?>
+							 <div class="post-text clearfix">
+								<?php echo substr($_post->getShortContent(), 0, $data['limit_characters_short_content']); ?>
+							</div>
+						<?php } ?>
+						<a class="post-read-more" href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>">
+						   <?php echo __('Read more') ?>
+						</a>
+					</div>
+					
+				</div>
+            </div>
+
+        <?php } ?>
+    </div>
+</div>
+</div>
+<?php if ($data['view_as'] == 'slide'): ?>
+	<script type="text/javascript">
+		require([
+			'jquery',
+			'vicomagecore',
+		], function($){
+			(function($) {
+				var element = $('#blogslide<?php echo $blockId ?>');
+				var config = '<?php echo $block->getFrontendCfg(); ?>';
+				$.fn.vicomageSlider(element,config);
+			})(jQuery);
+		});
+	</script>
+<?php endif ?>
+<?php } ?>

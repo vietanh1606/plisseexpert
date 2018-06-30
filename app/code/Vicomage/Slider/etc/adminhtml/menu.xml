@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Vicomage. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Vicomage_Slider::vicomage_slider" title="Slider" module="Vicomage_Slider" sortOrder="4" parent="Vicomage_Core::vicomage_manage" resource="Vicomage_Slider::vicomage_slider"/>
+        <add id="Vicomage_Slider::slider" title="Slideshow" module="Vicomage_Slider" sortOrder="1" parent="Vicomage_Slider::vicomage_slider" action="vicomage_slider/items/" resource="Vicomage_Slider::items"/>
+    </menu>
+</config>

@@ -1,0 +1,104 @@
+<?php
+	$id= $this->getData('setIdentity');
+	$collection=$block->getSlider($id);
+?>
+<?php if(isset($collection) && !empty($collection)) : ?>
+	<?php if($collection['status'] == false){ return false;}?>
+	<?php
+		$id_div=$collection['id'];
+		$w=(int)$collection['w'];
+		$h=(int)$collection['h'];
+		$autoPlay=$collection['auto_play'];
+		$loop=$collection['loop'];
+		$autoplay_speed=$collection['autoplay_speed'];
+		$navigation=$collection['navigation'];
+		$pagercontrol=$collection['pagercontrol'];
+		$lazyload=$collection['lazyload'];
+		$speed=(int)$collection['speed'];
+		$stop_on_hover=$collection['stop_on_hover'];
+		$data_image=json_decode($collection["slider"],true);
+	?>
+	<?php
+        foreach ($data_image as $key => $row) {
+            $volume[$key]  = $row['position'];
+        }
+        array_multisort($volume, SORT_ASC, $data_image);
+    ?>
+
+	<div class="vicomage-slider " id="vigo<?php echo $id_div; ?>">
+        <?php $i=0; ?>
+        <?php foreach ($data_image as $item) : ?>
+            <?php if(isset($item['disabled']) && !$item['disabled']): ?>
+                <div class="item">
+                    <?php if($item['media_type'] === 'image'):?>
+                    <a href="<?php echo isset($item["urlcontent"]) ? $item["urlcontent"] : '#' ?>">
+                        <img class="img-responsive" data-lazy="<?php echo $block->imageResize($item["file"],$w,$h); ?>" alt="<?php echo $item["label"] ?>"/>
+                    </a>
+                    <?php else:?>
+                        <div class="vicomage-video-container">
+                            <img id="img_video" class="img-responsive" data-lazy="<?php echo $block->imageResize($item["file"],$w,$h); ?>" alt="" data-url="<?= $item['video_url']?>" data-width="<?= $w;?>" data-height="<?= $h;?>"/>
+                        </div>
+                    <div class="vicomage-video-slider">
+                    </div>
+                    <?php endif;?>
+                    <div class="container">
+                        <?php echo $item["description"]; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php $i++; ?>
+        <?php endforeach;?>
+	</div>
+
+	<script type="text/javascript">
+		require([
+			'jquery',
+			'loadVideo',
+			'slick'
+		], function ($,loadVideo) {
+            var banner_slick = $("#vigo<?php echo $id_div; ?>");
+            banner_slick.slick({
+                slidesToShow: 1,
+                autoplay: <?php if ($autoPlay == 1) {
+                echo "true";
+            } else {
+                echo "false";
+            } ?>,
+                <?php if ($autoplay_speed) { ?>autoplaySpeed: <?php  echo $autoplay_speed ?>,<?php } ?>
+                <?php if ($speed) { ?>speed: <?php  echo $speed ?>,<?php } ?>
+                pauseOnHover: <?php if ($stop_on_hover == 1) {
+                echo "true";
+            } else {
+                echo "false";
+            } ?>,
+                dots: <?php if ($pagercontrol == 1) {
+                echo "true";
+            } else {
+                echo "false";
+            } ?>,
+                lazyLoad: <?php if ($lazyload == 1) {
+                echo "'progressive'";
+            } else {
+                echo "'ondemand'";
+            } ?>,
+                arrows: <?php if ($navigation == 1) {
+                echo "true";
+            } else {
+                echo "false";
+            } ?>,
+                infinite: <?php if ($loop == 1) {
+                echo "true";
+            } else {
+                echo "false";
+            } ?>,
+                slidesToScroll: 1
+            });
+            loadVideo.imgClick();
+            loadVideo.afterChange();
+        });
+	</script>
+<?php else : ?>
+	<?php echo "There are not slider !!!" ?>
+<?php endif; ?>
+
+

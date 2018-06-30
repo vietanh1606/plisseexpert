@@ -1,0 +1,180 @@
+<?php
+use Magento\Framework\App\Action\Action;
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$FormKey = $objectManager->get('Magento\Framework\Data\Form\FormKey');
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$themeHelper = $this->helper('Vicomage\General\Helper\Data');
+$multiWidgetHelper = $this->helper('Vicomage\Multiwidget\Helper\Data');
+
+?>
+<div class="product-type-group product_type_<?php echo $this->getTypeFilter(); ?>">
+    <?php if (!$_productCollection->count()): ?>
+        <div class="message info empty">
+            <div>
+                <?php echo __('We can\'t find products matching the selection.') ?>
+            </div>
+        </div>
+    <?php else: ?>
+    <?php
+    $viewMode = 'grid';
+    $image = 'category_page_grid';
+    $hover_image = 'category_page_grid-hover';
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    $pos = $block->getPositioned();
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $_helper = $objectManager->get('\Magento\Catalog\Helper\Output');
+    $config = $this->getWidgetCfg();
+    $image_width = $config['width-image'] ?: 270;
+    $image_height = $config['height-image'] ?: 344;
+    ?>
+        <div class="products-grid wrapper products-custom">
+            <div class="products list items product-items">
+                <?php foreach ($_productCollection as $_product): ?>
+                    <div class="item product product-item">
+                        <div class="product-item-info">
+                            <div class="product-img-hover">
+                                <a href="<?php /* @escapeNotVerified */
+                                echo $_product->getProductUrl() ?>" class="product photo product-item-photo"
+                                   tabindex="-1">
+                                    <?php
+
+                                    $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
+                                    $productImageUrl = $productImage->getUrl();
+                                    ?>
+                                    <img class="product-image-photo default_image" src="<?php echo $productImageUrl; ?>"
+                                         alt="<?php echo $productImage->getLabel(); ?>"/>
+
+                                    <?php
+                                    $productHoverImage = $_imagehelper->init($_product, $hover_image)->resize($image_width, $image_height);
+                                    $productHoverImageUrl = $productHoverImage->getUrl();
+                                    ?>
+                                    <?php if ($productImageUrl != str_replace("/thumbnail/", "/small_image/",
+                                            $productHoverImageUrl)
+                                    ): ?>
+                                        <img class="product-image-photo hover_image"
+                                             src="<?php echo $productHoverImageUrl; ?>"
+                                             alt="<?php echo $productHoverImage->getLabel(); ?>"/>
+                                    <?php endif; ?>
+                                    <?php // echo $productImage->toHtml(); ?>
+                                </a>
+                                <?php // Product Label ?>
+                                <?php echo $themeHelper->getProductLabel($_product) ?>
+                                <div class="product-item-inner">
+                                    
+                                    <?php if (isset($config['wishlist']) || isset($config['compare']) || isset($config['cart']) || isset($config['quickview'])): ?>
+                                        <div class="product actions product-item-actions">
+                                            <?php if (isset($config['cart'])): ?>
+                                                <div class="actions-primary"<?php echo strpos($pos,
+                                                    $viewMode . '-primary') ? $position : ''; ?>>
+                                                    <?php if ($_product->isSaleable()): ?>
+                                                        <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                                        <form data-role="tocart-form"
+                                                              action="<?php echo $postParams['action']; ?>"
+                                                              method="post">
+                                                            <input type="hidden" name="product"
+                                                                   value="<?php echo $postParams['data']['product']; ?>">
+                                                            <input type="hidden"
+                                                                   name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>"
+                                                                   value="<?php echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                                            <input name="form_key" type="hidden" value="<?php echo $FormKey->getFormKey();?>">
+                                                            <button type="submit"
+                                                                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                                    class="action tocart primary button btn-cart pull-left-none">
+                                                                <i class="fa fa-shopping-bag"></i>
+                                                            </button>
+                                                        </form>
+                                                    <?php else: ?>
+                                                        <?php if ($_product->getIsSalable()): ?>
+                                                            <div class="stock available">
+                                                                <span><?php echo __('In stock') ?></span></div>
+                                                        <?php else: ?>
+                                                            <div class="stock unavailable">
+                                                                <span><?php echo __('Out of stock') ?></span></div>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if (isset($config['wishlist']) || isset($config['compare']) || isset($config['quickview'])): ?>
+                                                <div class="actions-secondary add-to-links">
+                                                    <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow() && isset($config['wishlist'])): ?>
+                                                        <a href="#"
+                                                           class="action towishlist"
+                                                           title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                                           aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                                           data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
+                                                           data-action="add-to-wishlist"
+                                                           role="button">
+                                                            <span><?php echo __('Add to Wish List') ?></span>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                    <?php if (isset($config['compare'])):
+                                                        $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                                        ?>
+                                                        <a href="#"
+                                                           class="action tocompare"
+                                                           title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                                           aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                                           data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
+                                                           role="button">
+                                                            <span><?php echo __('Add to Compare') ?></span>
+                                                        </a>
+                                                    <?php endif; ?>
+                                                    <?php if(isset($config['quickview'])) :?>
+                                                        <a class="vicomage-quickview btn-quickview"
+                                                           data-quickview-url="<?php echo $this->getUrl('vicomage_quickview/catalog_product/view/'); ?>id/<?php echo $_product->getId(); ?>"
+                                                           href="javascript:void(0);"><span><i
+                                                                    class="fa fa-search"></i></span></a>
+                                                    <?php endif;?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="product details product-item-details products-textlink clearfix">
+                                <strong class="product name product-item-name">
+                                    <a class="product-item-link"
+                                       href="<?php echo $_product->getProductUrl() ?>">
+                                        <?php echo $_helper->productAttribute($_product, $_product->getName(),
+                                            'name'); ?>
+                                    </a>
+                                </strong>
+                                <?php echo isset($config['review']) ? $block->getReviewsSummaryHtml($_product, $templateType) : ''; ?>
+                                <?php echo $block->getProductPrice($_product) ?>
+                                <?php echo $block->getProductDetailsHtml($_product); ?>
+								<?php
+                                    if(isset($config['timer']) ) {
+                                        echo $multiWidgetHelper->getTimer($_product);
+                                    }?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php if (!$block->isRedirectToCartEnabled()) : ?>
+            <script type="text/x-magento-init">
+                {
+                    "[data-role=tocart-form], .form.map.checkout": {
+                        "catalogAddToCart": {}
+                    }
+                }
+
+                </script>
+        <?php endif; ?>
+        <?php
+        if(isset($config['timer']) && isset($config['timer_type'])) :
+            $layout = '<span class="day">%%D%%</span><span class class="colon">:</span><span class="hour">%%H%%</span><span class="colon">:</span><span class="min">%%M%%</span><span class="colon">:</span><span class="sec">%%S%%</span>';
+            if($config['timer_type'] == 2){
+                $layout = '<div class="timer-box"><span class="day">%%D%%</span><span class="title">' . __('Days') . '</span></div><div class="timer-box"><span class="hour">%%H%%</span><span class="title">' . __('Hrs')  . '</span></div><div class="timer-box"><span class="min">%%M%%</span><span  class="title">' . __('Mins') . '</span></div><div class="timer-box"><span class="sec">%%S%%</span><span  class="title">' . __('Secs') . '</span></div>';
+            }
+            ?>
+            <script type="text/javascript">
+                var vicommage_timer_layout 	= '<?php echo $layout ?>';
+                var vicommage_timer_timeout = '<span class="timeout"><?php echo __('Time out!')?></span>';
+            </script>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>

@@ -1,0 +1,52 @@
+<?php
+if ($this->getStatus() == 0) {
+    return;
+}
+$classRandom = 'blockproduct-'.rand(0,999999999).date('YmdHis');
+$tabs = $this->getAllTabs();
+$numTabs = count($tabs);
+?>
+<div class="vigoproduct vigoproduct-list <?php echo $classRandom?>">
+    <?php if ($numTabs): ?>
+        <div class="title-page">
+            <h2 class="subtitle"><?php echo $this->getTitle(); ?></h2>
+        </div>
+        <div class="block-title-tabs">
+            <ul class="group-product-tabs" data-ajax-url='<?php echo $this->getUrl('multiwidget/index/category') ?>'>
+                <?php
+                $activated = $this->getTabActivated();
+                $limit = $this->getLimit();
+                $single = ($numTabs == 1) ? 'single' : '';
+                $i = 0;
+                foreach ($tabs as $type => $name):
+                    $status = (!$this->getAjax() || $activated == $type) ? 'loaded' : '';
+                    $status .= ($type == $activated) ? " active $single" : '';
+                    ?>
+                    <li class="product-tab <?php echo $status; ?>" data-type="<?php echo $type ?>"><span
+                            class="title"><?php echo __($name); ?></span>
+                    </li>
+                    <?php $i++; endforeach; ?>
+            </ul>
+        </div>
+    <?php endif ?>
+    <div class="content-products">
+        <div class="ajax_loading" style="display:none"><i class="fa fa-spinner fa-spin"></i></div>
+        <?php echo $this->getContentProduct('category/grid-featured.phtml'); ?>
+    </div>
+</div>
+<?php if(!$this->getSlide()):?>
+    <style type="text/css"><?php echo $block->getStyleNoSlider($classRandom) ?></style>
+<?php endif;?>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'multiwidget',
+    ], function($){
+        (function($) {
+            var element = $('.<?php echo $classRandom ?>');
+            var ajaxConfig = '<?php echo $this->getAjaxCfg();?>';
+            var sliderConfig = '<?php echo $this->getFrontendCfg();?>';
+            $.fn.vicomagewidget(element,sliderConfig,ajaxConfig);
+        })(jQuery);
+    });
+</script>

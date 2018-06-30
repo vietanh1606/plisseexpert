@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Widget/etc/widget.xsd">
+	<widget id="vicomage_mega_menu" class="Vicomage\Megamenu\Block\WidgetMegamenu">
+		<label translate="true">Vicomage Mega Menu Widget</label>
+		<description>Vicomage Mega Menu Widget</description>
+		<parameters>
+            <parameter name="menu_type" xsi:type="select" required="true" visible="true">
+                <label translate="true">Type</label>
+                <options>
+                    <option name="navigation" value="navigation" selected="true">
+                        <label translate="true">Navigation</label>
+                    </option>
+                    <option name="vertical" value="vertical" selected="true">
+                        <label translate="true">Vertical</label>
+                    </option>
+                    <option name="accordion" value="accordion" selected="true">
+                        <label translate="true">Accordion</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="group" xsi:type="select" visible="true" source_model="Vicomage\Megamenu\Model\Config\Source\Groups">
+                <label translate="true">Group</label>
+            </parameter>
+		</parameters>
+	</widget>
+</widgets>

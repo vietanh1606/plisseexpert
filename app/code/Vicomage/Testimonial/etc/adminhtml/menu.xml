@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+		<add id="Vicomage_Testimonial::testimonial" title="Testimonial" module="Vicomage_Testimonial" sortOrder="40" parent="Vicomage_Core::vicomage_manage" resource="Vicomage_Testimonial::testimonial"/>
+		<add id="Vicomage_Testimonial::testimonial_manage" title="Testimonial Items" module="Vicomage_Testimonial" sortOrder="10" parent="Vicomage_Testimonial::testimonial" action="adminhtml/testimonial/index" resource="Vicomage_Testimonial::testimonial_manage"/>
+    </menu>
+</config>

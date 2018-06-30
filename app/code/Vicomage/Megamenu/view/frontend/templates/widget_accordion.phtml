@@ -1,0 +1,37 @@
+<?php $config = $this->getConfig(); ?>
+<?php if (isset($config['group'])): ?>
+    <?php
+    $items = $this->getItems();
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+    ?>
+    <div class="accordion-container block">
+        <div class="block-title">
+            <strong>Category</strong>
+        </div>
+        <nav class="accordion accordion-megamenu " role="navigation">
+            <ul id="mainMenu" class=" nav-main">
+                <?php echo $this->getCategorys(); ?>
+				<?php if ($items) : ?>
+                    <?php foreach ($items as $item) {
+                        echo $this->getMegamenuHtml($item);
+                    } ?>
+				 <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
+
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'navaccordion'
+        ], function ($) {
+            $(".accordion-megamenu").navAccordion({
+                expandButtonText: '<i class="fa fa-angle-up"></i>',  //Text inside of buttons can be HTML
+                collapseButtonText: '<i class="fa fa-angle-down"></i>'
+            });
+        });
+
+    </script>
+<?php endif; ?>
+

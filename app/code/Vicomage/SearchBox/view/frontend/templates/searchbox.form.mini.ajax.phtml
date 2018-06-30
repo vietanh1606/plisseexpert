@@ -1,0 +1,24 @@
+<?php
+
+$show_more = $this->_getConfig('show_more');
+$limit_popular = $this->_getConfig('limit_popular');
+$more_text = $this->_getConfig('more_text', 'More++');
+
+if (sizeof($this->getTerms()) > 0) { ?>
+    <ul class="vico-searchbox-keyword-list">
+        <?php foreach ($this->getTerms() as $_term) { ?>
+            <li>
+                <a href="<?php echo $this->getSearchUrl($_term); ?>"><?php echo $this->escapeHtml($_term->getQueryText()); ?></a>
+            </li>
+        <?php } ?>
+
+        <?php if ($show_more) { ?>
+            <li>
+                <a class="vico-searchbox-more" data-ajaxmore="<?php echo $this->getSearchBoxAjax(); ?>"
+                   data-count="<?php echo $limit_popular; ?>"><?php echo $more_text; ?></a>
+            </li>
+        <?php } ?>
+    </ul>
+<?php } else { ?>
+    <p class="note-msg"><?php echo __(' There are no search terms available.'); ?></p>
+<?php } ?>
